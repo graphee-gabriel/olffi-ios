@@ -8,54 +8,6 @@
 
 import UIKit
 import FBSDKCoreKit
-import FBSDKLoginKit
-
-struct Auth {
-    var tokenType:TokenType = .NULL,
-        tokenValue = ""
-    
-    enum TokenType: String {
-        case
-            NULL = "",
-            FACEBOOK = "facebook",
-            LINKEDIN = "linkedin",
-            BASIC = "basic"
-    }
-    
-    func isLoggedIn() -> Bool {
-        return !tokenValue.isEmpty
-    }
-    
-    mutating func logOut() {
-        self.tokenType = .NULL
-        self.tokenValue = ""
-        FBSDKLoginManager().logOut()
-        save()
-    }
-
-    mutating func logIn(type:TokenType, token:String) {
-        self.tokenType = type
-        self.tokenValue = token
-        save()
-    }
-
-    func save() {
-        NSUserDefaults.standardUserDefaults().setValue(tokenType.rawValue, forKey: "tokenType")
-        NSUserDefaults.standardUserDefaults().setValue(tokenValue, forKey: "tokenValue")
-        NSUserDefaults.standardUserDefaults().synchronize()
-    }
-    
-    mutating func load() {
-        if let
-            tokenTypeRawValue = NSUserDefaults.standardUserDefaults().valueForKey("tokenType") as! String?,
-            tokenValue = NSUserDefaults.standardUserDefaults().valueForKey("tokenValue") as! String?
-        {
-            self.tokenType = TokenType(rawValue: tokenTypeRawValue)!
-            self.tokenValue = tokenValue
-        }
-        print("load with tokenType: "+self.tokenType.rawValue + " | and tokenValue: "+self.tokenValue)
-    }
-}
 
 var auth = Auth.init()
 
@@ -64,6 +16,13 @@ func startWebApp(currentViewController:UIViewController) {
     webAppViewController?.modalPresentationStyle = .Custom
     webAppViewController?.modalTransitionStyle = .CrossDissolve
     currentViewController.presentViewController(webAppViewController!, animated: true, completion: nil)
+}
+
+func startSignIn(currentViewController:UIViewController, modalTransitionStyle:UIModalTransitionStyle) {
+    let signInViewController = currentViewController.storyboard!.instantiateViewControllerWithIdentifier("SignInViewController") as? SignInViewController
+    signInViewController?.modalPresentationStyle = .Custom
+    signInViewController?.modalTransitionStyle = modalTransitionStyle
+    currentViewController.presentViewController(signInViewController!, animated: true, completion: nil)
 }
 
 @UIApplicationMain

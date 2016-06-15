@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Web App View Controller-->
@@ -88,22 +89,22 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceI-Xt-IGG" userLabel="Brand">
-                                <rect key="frame" x="0.0" y="64" width="600" height="422"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="377"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="I2u-Zs-zVC" userLabel="Logo">
-                                        <rect key="frame" x="210" y="180" width="180" height="62"/>
+                                        <rect key="frame" x="210" y="158" width="180" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="09V-et-PUa"/>
                                             <constraint firstAttribute="height" constant="62" id="qe4-o8-85c"/>
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Online Film Financing" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dNa-Sz-EZ8">
-                                        <rect key="frame" x="0.0" y="250" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="228" width="600" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="vSh-ew-cZv"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -117,17 +118,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="289-EA-m0X" userLabel="Buttons">
-                                <rect key="frame" x="8" y="562" width="584" height="30"/>
+                                <rect key="frame" x="8" y="547" width="584" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSO-fA-xUt">
-                                        <rect key="frame" x="534" y="0.0" width="42" height="30"/>
+                                        <rect key="frame" x="529" y="0.0" width="47" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Log in"/>
                                         <connections>
                                             <segue destination="Sma-1m-FAo" kind="presentation" modalTransitionStyle="crossDissolve" id="kh3-UG-bof"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFp-es-N7p">
-                                        <rect key="frame" x="8" y="0.0" width="52" height="30"/>
+                                        <rect key="frame" x="8" y="6" width="58" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Sign up"/>
                                         <connections>
                                             <segue destination="Le7-hq-mdT" kind="presentation" modalTransitionStyle="crossDissolve" id="Pdp-YE-58C"/>
@@ -138,24 +141,25 @@
                                 <constraints>
                                     <constraint firstItem="bFp-es-N7p" firstAttribute="centerY" secondItem="289-EA-m0X" secondAttribute="centerY" id="4vJ-NY-gXR"/>
                                     <constraint firstItem="bFp-es-N7p" firstAttribute="leading" secondItem="289-EA-m0X" secondAttribute="leading" constant="8" id="6Ts-wo-csR"/>
-                                    <constraint firstAttribute="height" constant="30" id="QB2-oc-Abi"/>
+                                    <constraint firstAttribute="height" constant="45" id="QB2-oc-Abi"/>
                                     <constraint firstItem="LSO-fA-xUt" firstAttribute="bottom" secondItem="289-EA-m0X" secondAttribute="bottom" id="RYW-sF-KGT"/>
                                     <constraint firstAttribute="trailing" secondItem="LSO-fA-xUt" secondAttribute="trailing" constant="8" id="m2d-dS-Nhe"/>
                                     <constraint firstItem="LSO-fA-xUt" firstAttribute="centerY" secondItem="289-EA-m0X" secondAttribute="centerY" id="w4Y-Mu-3tK"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHk-Mj-W8c" userLabel="FBSDKLoginButton" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="8" y="524" width="584" height="30"/>
+                                <rect key="frame" x="8" y="494" width="584" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EKD-Ml-7Vt"/>
+                                    <constraint firstAttribute="height" constant="45" id="EKD-Ml-7Vt"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikr-8D-0Bk" userLabel="Button LinkedIn Login">
-                                <rect key="frame" x="8" y="486" width="584" height="30"/>
+                                <rect key="frame" x="8" y="441" width="584" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.46666666666666667" blue="0.70980392156862748" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QJZ-LM-51O"/>
+                                    <constraint firstAttribute="height" constant="45" id="QJZ-LM-51O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Log in with LinkedIn"/>
@@ -164,9 +168,9 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="E3y-lf-1b8" userLabel="Icon LinkedIn Login">
-                                <rect key="frame" x="17" y="493" width="16" height="16"/>
+                                <rect key="frame" x="20" y="451" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="E3y-lf-1b8" secondAttribute="height" multiplier="1:1" id="62H-xe-qqB"/>
+                                    <constraint firstAttribute="width" secondItem="E3y-lf-1b8" secondAttribute="height" multiplier="1:1" id="rGj-Mc-Mjc"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -176,25 +180,25 @@
                             <constraint firstItem="Ikr-8D-0Bk" firstAttribute="top" secondItem="ceI-Xt-IGG" secondAttribute="bottom" id="9oX-4J-mvF"/>
                             <constraint firstItem="7o4-pn-Rox" firstAttribute="centerX" secondItem="yb5-t7-hY5" secondAttribute="centerX" id="AoT-Ct-uPU"/>
                             <constraint firstItem="JHk-Mj-W8c" firstAttribute="leading" secondItem="yb5-t7-hY5" secondAttribute="leading" constant="8" id="DfW-kD-WLc"/>
+                            <constraint firstItem="E3y-lf-1b8" firstAttribute="centerY" secondItem="Ikr-8D-0Bk" secondAttribute="centerY" id="EgP-H3-Yxl"/>
                             <constraint firstItem="7o4-pn-Rox" firstAttribute="width" secondItem="yb5-t7-hY5" secondAttribute="width" id="EyK-UD-LaK"/>
-                            <constraint firstItem="E3y-lf-1b8" firstAttribute="leading" secondItem="Ikr-8D-0Bk" secondAttribute="leading" constant="9" id="S09-Ga-bJr"/>
                             <constraint firstItem="Ikr-8D-0Bk" firstAttribute="leading" secondItem="yb5-t7-hY5" secondAttribute="leading" constant="8" id="TYi-L6-DHO"/>
                             <constraint firstItem="JHk-Mj-W8c" firstAttribute="top" secondItem="Ikr-8D-0Bk" secondAttribute="bottom" constant="8" id="WMR-H9-nvs"/>
                             <constraint firstItem="289-EA-m0X" firstAttribute="leading" secondItem="yb5-t7-hY5" secondAttribute="leading" constant="8" id="X0j-LQ-xFn"/>
                             <constraint firstItem="ceI-Xt-IGG" firstAttribute="leading" secondItem="yb5-t7-hY5" secondAttribute="leading" id="a4h-tz-dW4"/>
-                            <constraint firstItem="E3y-lf-1b8" firstAttribute="bottom" secondItem="Ikr-8D-0Bk" secondAttribute="bottom" constant="-7" id="aCT-6U-2PV"/>
                             <constraint firstItem="BeJ-DD-thy" firstAttribute="centerY" secondItem="yb5-t7-hY5" secondAttribute="centerY" id="ca9-1J-rF6"/>
                             <constraint firstItem="7o4-pn-Rox" firstAttribute="centerY" secondItem="yb5-t7-hY5" secondAttribute="centerY" id="f1I-d2-nkd"/>
+                            <constraint firstItem="E3y-lf-1b8" firstAttribute="centerX" secondItem="Ikr-8D-0Bk" secondAttribute="leading" multiplier="4" id="jZY-lt-HBi"/>
                             <constraint firstAttribute="bottom" secondItem="289-EA-m0X" secondAttribute="bottom" constant="8" id="kzE-mx-yn4"/>
                             <constraint firstItem="ceI-Xt-IGG" firstAttribute="top" secondItem="fMy-dp-HCy" secondAttribute="bottom" id="m78-BO-DEr"/>
                             <constraint firstAttribute="trailing" secondItem="ceI-Xt-IGG" secondAttribute="trailing" id="mEd-in-PNf"/>
                             <constraint firstItem="JHk-Mj-W8c" firstAttribute="bottom" secondItem="289-EA-m0X" secondAttribute="top" constant="-8" id="n1z-aN-rXi"/>
                             <constraint firstItem="BeJ-DD-thy" firstAttribute="centerX" secondItem="yb5-t7-hY5" secondAttribute="centerX" id="obI-KR-gSI"/>
                             <constraint firstAttribute="trailing" secondItem="Ikr-8D-0Bk" secondAttribute="trailing" constant="8" id="pEp-s7-Tiu"/>
+                            <constraint firstItem="E3y-lf-1b8" firstAttribute="height" secondItem="Ikr-8D-0Bk" secondAttribute="height" multiplier="1:1.87" id="pmn-WK-wDo"/>
                             <constraint firstAttribute="trailing" secondItem="JHk-Mj-W8c" secondAttribute="trailing" constant="8" id="w2G-8n-8eu"/>
                             <constraint firstItem="7o4-pn-Rox" firstAttribute="height" secondItem="yb5-t7-hY5" secondAttribute="height" id="xgT-gv-30l"/>
                             <constraint firstAttribute="trailing" secondItem="289-EA-m0X" secondAttribute="trailing" constant="8" id="xgk-Jk-d2L"/>
-                            <constraint firstItem="E3y-lf-1b8" firstAttribute="top" secondItem="Ikr-8D-0Bk" secondAttribute="top" constant="7" id="ybJ-cz-ryh"/>
                             <constraint firstItem="BeJ-DD-thy" firstAttribute="width" secondItem="yb5-t7-hY5" secondAttribute="width" id="zaD-ug-fBP"/>
                         </constraints>
                     </view>
@@ -230,10 +234,10 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-Dq-o5u">
-                                <rect key="frame" x="290" y="166" width="20" height="20"/>
+                                <rect key="frame" x="290" y="169" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uiy-Qd-dr5" userLabel="Fields">
-                                <rect key="frame" x="8" y="96" width="584" height="160"/>
+                                <rect key="frame" x="8" y="99" width="584" height="160"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHf-8C-oFd" userLabel="Name">
                                         <rect key="frame" x="0.0" y="0.0" width="584" height="38"/>
@@ -304,21 +308,23 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="539-UR-422">
-                                <rect key="frame" x="274" y="264" width="52" height="30"/>
+                                <rect key="frame" x="271" y="267" width="58" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
                                     <action selector="OnSignUpAttempt:" destination="Le7-hq-mdT" eventType="touchUpInside" id="3LS-sW-6wz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEE-03-fLk">
-                                <rect key="frame" x="20" y="20" width="48" height="30"/>
+                                <rect key="frame" x="20" y="20" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="onCancel:" destination="Le7-hq-mdT" eventType="touchUpInside" id="UnM-T2-tvG"/>
                                 </connections>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aRP-Jx-NXg" userLabel="Error">
-                                <rect key="frame" x="8" y="58" width="584" height="30"/>
+                                <rect key="frame" x="8" y="61" width="584" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wI7-GG-EyR"/>
                                 </constraints>
@@ -406,10 +412,10 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-hC-oJx">
-                                <rect key="frame" x="290" y="128" width="20" height="20"/>
+                                <rect key="frame" x="290" y="131" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcW-9B-D6u" userLabel="Fields">
-                                <rect key="frame" x="8" y="96" width="584" height="84"/>
+                                <rect key="frame" x="8" y="99" width="584" height="84"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ro5-KH-HxL">
                                         <rect key="frame" x="8" y="8" width="568" height="30"/>
@@ -439,22 +445,24 @@
                                     <constraint firstItem="ro5-KH-HxL" firstAttribute="leading" secondItem="dcW-9B-D6u" secondAttribute="leading" constant="8" id="jS6-4Q-qKR"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="le6-bC-QIj">
-                                <rect key="frame" x="274" y="188" width="52" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="le6-bC-QIj">
+                                <rect key="frame" x="274" y="191" width="52" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="onSignInAttempt:" destination="Sma-1m-FAo" eventType="touchUpInside" id="eS6-0m-M3Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elp-at-PwG">
-                                <rect key="frame" x="20" y="20" width="48" height="30"/>
+                                <rect key="frame" x="20" y="20" width="53" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="onCancel:" destination="Sma-1m-FAo" eventType="touchUpInside" id="W0t-9r-YH2"/>
                                 </connections>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0wB-7v-YOm" userLabel="Error">
-                                <rect key="frame" x="8" y="58" width="584" height="30"/>
+                                <rect key="frame" x="8" y="61" width="584" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ydg-Ah-YNN"/>
                                 </constraints>

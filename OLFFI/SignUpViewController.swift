@@ -47,7 +47,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBAction func OnSignUpAttempt(sender: UIButton) {
         var errorMessage = ""
         var errorView:UITextField = UITextField()
-        textViewError.hidden = true
+        hideError()
         showLoading(false)
         
         if let
@@ -77,10 +77,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             if (errorMessage.isEmpty) {
                 print("Everything went fine")
                 showLoading(true)
-                startWebApp(self)
+                BasicAuth.signUp(firstName, lastName: lastName, email: email, password: password, passwordConfirmation: passwordConfirm, completion: { (error) in
+                    self.showLoading(false)
+                    if error {
+                        self.showError("Could not connect to the server")
+                    } else {
+                        self.showSuccess({
+                            startSignIn(self, modalTransitionStyle: .CoverVertical)
+                        })
+                    }
+
+                })
             } else {
-                textViewError.hidden = false
-                textViewError.text = errorMessage
+                showError(errorMessage)
                 errorView.becomeFirstResponder()
                 errorView.selectedTextRange = errorView.textRangeFromPosition(errorView.beginningOfDocument, toPosition: errorView.endOfDocument)
             }
@@ -104,7 +113,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return password == passwordConfirm
     }
     
-    
     func showLoading(show:Bool) {
         viewFields.hidden = show
         viewLoading.hidden = !show
@@ -113,6 +121,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         } else {
             viewLoading.stopAnimating()
         }
+    }
+
+    func showError(error:String) {
+        textViewError.hidden = false
+        textViewError.text = error
+    }
+    
+    func hideError() {
+        textViewError.hidden = true
+        textViewError.text = ""
+    }
+    
+    func showSuccess(completion: () -> Void) {
+        let alertController = UIAlertController(title: "Success", message:
+            "An e-mail has been sent to you. Please open it and click on the confirmation link to proceed.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: completion)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

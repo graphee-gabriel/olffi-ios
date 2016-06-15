@@ -17,6 +17,8 @@
 		2A4D52AF1C92AA9500805428 /* OLFFIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D52AE1C92AA9500805428 /* OLFFIUITests.swift */; };
 		2AAD8DB21D1021D6000B5C7E /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */; };
 		2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB31D102956000B5C7E /* SignInViewController.swift */; };
+		2AAD8DB61D114080000B5C7E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB51D114080000B5C7E /* Auth.swift */; };
+		2AAD8DB81D11427A000B5C7E /* BasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB71D11427A000B5C7E /* BasicAuth.swift */; };
 		2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */; };
 		910E4C8A8127E5A684E7C5D3 /* Pods_OLFFIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64BA4ACF280A1970F4D887B /* Pods_OLFFIUITests.framework */; };
 		93C006D5708F4999A6009F5A /* Pods_OLFFI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */; };
@@ -60,6 +62,8 @@
 		2AAD8DA91D0F4898000B5C7E /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
 		2AAD8DB31D102956000B5C7E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		2AAD8DB51D114080000B5C7E /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		2AAD8DB71D11427A000B5C7E /* BasicAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAuth.swift; sourceTree = "<group>"; };
 		2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3EAC0CFEFDFB06ECCF81383A /* Pods-OLFFI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFI/Pods-OLFFI.debug.xcconfig"; sourceTree = "<group>"; };
 		718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLFFI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,8 @@
 				2A4D52921C92AA9500805428 /* Main.storyboard */,
 				2A4D52971C92AA9500805428 /* LaunchScreen.storyboard */,
 				2A4D529A1C92AA9500805428 /* Info.plist */,
+				2AAD8DB51D114080000B5C7E /* Auth.swift */,
+				2AAD8DB71D11427A000B5C7E /* BasicAuth.swift */,
 			);
 			path = OLFFI;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				TargetAttributes = {
 					2A4D528A1C92AA9500805428 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 6223U6585J;
 					};
 					2A4D529E1C92AA9500805428 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -446,7 +453,9 @@
 				2A4D52911C92AA9500805428 /* WebAppViewController.swift in Sources */,
 				2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */,
 				2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */,
+				2AAD8DB81D11427A000B5C7E /* BasicAuth.swift in Sources */,
 				2A4D528F1C92AA9500805428 /* AppDelegate.swift in Sources */,
+				2AAD8DB61D114080000B5C7E /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +598,8 @@
 			baseConfigurationReference = 3EAC0CFEFDFB06ECCF81383A /* Pods-OLFFI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -598,6 +609,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olffi.app.olffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -607,6 +619,8 @@
 			baseConfigurationReference = CBBC9DDC12DAF6A1EA488B44 /* Pods-OLFFI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -616,6 +630,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.olffi.app.olffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

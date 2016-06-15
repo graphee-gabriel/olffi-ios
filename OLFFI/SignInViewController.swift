@@ -40,7 +40,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onSignInAttempt(sender: UIButton) {
         var errorMessage = ""
         var errorView:UITextField = UITextField()
-        textViewError.hidden = true
+        hideError()
         showLoading(false)
         
         if let
@@ -56,12 +56,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             }
             
             if (errorMessage.isEmpty) {
-                print("Everything went fine")
                 showLoading(true)
-                startWebApp(self)
+                BasicAuth.logIn(email, password: password, completion: { (error) in
+                    self.showLoading(false)
+                    if error {
+                        self.showError("Could not connect to the server")
+                    } else {
+                        startWebApp(self)
+                    }
+                })
             } else {
-                textViewError.hidden = false
-                textViewError.text = errorMessage
+                showError(errorMessage)
                 errorView.becomeFirstResponder()
                 errorView.selectedTextRange = errorView.textRangeFromPosition(errorView.beginningOfDocument, toPosition: errorView.endOfDocument)
             }
@@ -85,6 +90,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         } else {
             viewLoading.stopAnimating()
         }
+    }
+
+    func showError(error:String) {
+        textViewError.hidden = false
+        textViewError.text = error
+    }
+    
+    func hideError() {
+        textViewError.hidden = true
+        textViewError.text = ""
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
