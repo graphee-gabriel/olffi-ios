@@ -7,6 +7,64 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+
+struct Auth {
+    var tokenType:TokenType = .NULL,
+        tokenValue = ""
+    
+    enum TokenType: String {
+        case
+            NULL = "",
+            FACEBOOK = "facebook",
+            LINKEDIN = "linkedin",
+            BASIC = "basic"
+    }
+    
+    func isLoggedIn() -> Bool {
+        return !tokenValue.isEmpty
+    }
+    
+    mutating func logOut() {
+        self.tokenType = .NULL
+        self.tokenValue = ""
+        FBSDKLoginManager().logOut()
+        save()
+    }
+
+    mutating func logIn(type:TokenType, token:String) {
+        self.tokenType = type
+        self.tokenValue = token
+        save()
+    }
+
+    func save() {
+        NSUserDefaults.standardUserDefaults().setValue(tokenType.rawValue, forKey: "tokenType")
+        NSUserDefaults.standardUserDefaults().setValue(tokenValue, forKey: "tokenValue")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    mutating func load() {
+        if let
+            tokenTypeRawValue = NSUserDefaults.standardUserDefaults().valueForKey("tokenType") as! String?,
+            tokenValue = NSUserDefaults.standardUserDefaults().valueForKey("tokenValue") as! String?
+        {
+            self.tokenType = TokenType(rawValue: tokenTypeRawValue)!
+            self.tokenValue = tokenValue
+        }
+        print("load with tokenType: "+self.tokenType.rawValue + " | and tokenValue: "+self.tokenValue)
+    }
+}
+
+var auth = Auth.init()
+
+func startWebApp(currentViewController:UIViewController) {
+    let webAppViewController = currentViewController.storyboard!.instantiateViewControllerWithIdentifier("WebAppViewController") as? WebAppViewController
+    webAppViewController?.modalPresentationStyle = .Custom
+    webAppViewController?.modalTransitionStyle = .CrossDissolve
+    currentViewController.presentViewController(webAppViewController!, animated: true, completion: nil)
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,10 +73,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if LISDKCallbackHandler.shouldHandleUrl(url) {
+            return LISDKCallbackHandler.application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        }
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -35,6 +103,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
+        
+//        let fbAccessToken = FBSDKAccessToken.currentAccessToken()
+//        if (fbAccessToken != nil) {
+//            auth.tokenType = .FACEBOOK
+//            auth.tokenValue = fbAccessToken.tokenString
+//        }
+//        
+//        if LISDKSessionManager.hasValidSession() && LISDKSessionManager.sharedInstance().session.accessToken != nil{
+//            auth.tokenType = .LINKEDIN
+//            auth.tokenValue = LISDKSessionManager.sharedInstance().session.accessToken.accessTokenValue
+//        }
+        auth.load()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.window!.rootViewController = storyboard.instantiateViewControllerWithIdentifier(auth.isLoggedIn() ? "WebAppViewController" : "LoginViewController")
     }
 
     func applicationWillTerminate(application: UIApplication) {

@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1958071D0EA13E00821CC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1958061D0EA13E00821CC1 /* LoginViewController.swift */; };
 		2A4D528F1C92AA9500805428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D528E1C92AA9500805428 /* AppDelegate.swift */; };
-		2A4D52911C92AA9500805428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D52901C92AA9500805428 /* ViewController.swift */; };
+		2A4D52911C92AA9500805428 /* WebAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D52901C92AA9500805428 /* WebAppViewController.swift */; };
 		2A4D52941C92AA9500805428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D52921C92AA9500805428 /* Main.storyboard */; };
 		2A4D52961C92AA9500805428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D52951C92AA9500805428 /* Assets.xcassets */; };
 		2A4D52991C92AA9500805428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D52971C92AA9500805428 /* LaunchScreen.storyboard */; };
 		2A4D52A41C92AA9500805428 /* OLFFITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D52A31C92AA9500805428 /* OLFFITests.swift */; };
 		2A4D52AF1C92AA9500805428 /* OLFFIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D52AE1C92AA9500805428 /* OLFFIUITests.swift */; };
+		2AAD8DB21D1021D6000B5C7E /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */; };
+		2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB31D102956000B5C7E /* SignInViewController.swift */; };
+		2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */; };
+		910E4C8A8127E5A684E7C5D3 /* Pods_OLFFIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64BA4ACF280A1970F4D887B /* Pods_OLFFIUITests.framework */; };
+		93C006D5708F4999A6009F5A /* Pods_OLFFI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */; };
+		DF84EDFC4E131904BD801D1E /* Pods_OLFFITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C96CB26C9724F2849C46B9 /* Pods_OLFFITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		004A349B2234F5843C49C4E8 /* Pods-OLFFIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFIUITests/Pods-OLFFIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		14C96CB26C9724F2849C46B9 /* Pods_OLFFITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLFFITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A1958061D0EA13E00821CC1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2A4D528B1C92AA9500805428 /* OLFFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLFFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A4D528E1C92AA9500805428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A4D52901C92AA9500805428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2A4D52901C92AA9500805428 /* WebAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppViewController.swift; sourceTree = "<group>"; };
 		2A4D52931C92AA9500805428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A4D52951C92AA9500805428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A4D52981C92AA9500805428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +57,17 @@
 		2A4D52AA1C92AA9500805428 /* OLFFIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OLFFIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A4D52AE1C92AA9500805428 /* OLFFIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLFFIUITests.swift; sourceTree = "<group>"; };
 		2A4D52B01C92AA9500805428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AAD8DA91D0F4898000B5C7E /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
+		2AAD8DB31D102956000B5C7E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3EAC0CFEFDFB06ECCF81383A /* Pods-OLFFI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFI/Pods-OLFFI.debug.xcconfig"; sourceTree = "<group>"; };
+		718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLFFI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F369066E333DF78F6972F85 /* Pods-OLFFITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFITests/Pods-OLFFITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B76BEE870FD76A0D275BC9EA /* Pods-OLFFIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFIUITests/Pods-OLFFIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CBBC9DDC12DAF6A1EA488B44 /* Pods-OLFFI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFI.release.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFI/Pods-OLFFI.release.xcconfig"; sourceTree = "<group>"; };
+		DA71ACF053F9DB48FF82B6BA /* Pods-OLFFITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFITests/Pods-OLFFITests.release.xcconfig"; sourceTree = "<group>"; };
+		E64BA4ACF280A1970F4D887B /* Pods_OLFFIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLFFIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C006D5708F4999A6009F5A /* Pods_OLFFI.framework in Frameworks */,
+				2AAD8DB21D1021D6000B5C7E /* linkedin-sdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF84EDFC4E131904BD801D1E /* Pods_OLFFITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +92,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910E4C8A8127E5A684E7C5D3 /* Pods_OLFFIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		078653D0AD1F67DE017E68E4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EAC0CFEFDFB06ECCF81383A /* Pods-OLFFI.debug.xcconfig */,
+				CBBC9DDC12DAF6A1EA488B44 /* Pods-OLFFI.release.xcconfig */,
+				8F369066E333DF78F6972F85 /* Pods-OLFFITests.debug.xcconfig */,
+				DA71ACF053F9DB48FF82B6BA /* Pods-OLFFITests.release.xcconfig */,
+				B76BEE870FD76A0D275BC9EA /* Pods-OLFFIUITests.debug.xcconfig */,
+				004A349B2234F5843C49C4E8 /* Pods-OLFFIUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2A4D52821C92AA9500805428 = {
 			isa = PBXGroup;
 			children = (
+				2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */,
 				2A4D528D1C92AA9500805428 /* OLFFI */,
 				2A4D52A21C92AA9500805428 /* OLFFITests */,
 				2A4D52AD1C92AA9500805428 /* OLFFIUITests */,
 				2A4D528C1C92AA9500805428 /* Products */,
+				078653D0AD1F67DE017E68E4 /* Pods */,
+				C411C057F343F796801E4B58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,9 +139,13 @@
 			isa = PBXGroup;
 			children = (
 				2A4D528E1C92AA9500805428 /* AppDelegate.swift */,
-				2A4D52901C92AA9500805428 /* ViewController.swift */,
-				2A4D52921C92AA9500805428 /* Main.storyboard */,
+				2A1958061D0EA13E00821CC1 /* LoginViewController.swift */,
+				2AAD8DA91D0F4898000B5C7E /* Bridging-Header.h */,
+				2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */,
+				2AAD8DB31D102956000B5C7E /* SignInViewController.swift */,
+				2A4D52901C92AA9500805428 /* WebAppViewController.swift */,
 				2A4D52951C92AA9500805428 /* Assets.xcassets */,
+				2A4D52921C92AA9500805428 /* Main.storyboard */,
 				2A4D52971C92AA9500805428 /* LaunchScreen.storyboard */,
 				2A4D529A1C92AA9500805428 /* Info.plist */,
 			);
@@ -125,6 +170,16 @@
 			path = OLFFIUITests;
 			sourceTree = "<group>";
 		};
+		C411C057F343F796801E4B58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */,
+				14C96CB26C9724F2849C46B9 /* Pods_OLFFITests.framework */,
+				E64BA4ACF280A1970F4D887B /* Pods_OLFFIUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A4D52B31C92AA9500805428 /* Build configuration list for PBXNativeTarget "OLFFI" */;
 			buildPhases = (
+				BD4704C5A8537930BE66E6EB /* 📦 Check Pods Manifest.lock */,
 				2A4D52871C92AA9500805428 /* Sources */,
 				2A4D52881C92AA9500805428 /* Frameworks */,
 				2A4D52891C92AA9500805428 /* Resources */,
+				746152F45A5D84CFA11FD1F8 /* 📦 Embed Pods Frameworks */,
+				CCFEB99C30D175B3AF154686 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +207,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A4D52B61C92AA9500805428 /* Build configuration list for PBXNativeTarget "OLFFITests" */;
 			buildPhases = (
+				35D93A5F96078D977E65F2ED /* 📦 Check Pods Manifest.lock */,
 				2A4D529B1C92AA9500805428 /* Sources */,
 				2A4D529C1C92AA9500805428 /* Frameworks */,
 				2A4D529D1C92AA9500805428 /* Resources */,
+				793361217AB965B7D89BCC0F /* 📦 Embed Pods Frameworks */,
+				107D79A260B9A69AC518C9FC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A4D52B91C92AA9500805428 /* Build configuration list for PBXNativeTarget "OLFFIUITests" */;
 			buildPhases = (
+				53F3D86965B8C867BA0E1223 /* 📦 Check Pods Manifest.lock */,
 				2A4D52A61C92AA9500805428 /* Sources */,
 				2A4D52A71C92AA9500805428 /* Frameworks */,
 				2A4D52A81C92AA9500805428 /* Resources */,
+				02ACEC457E8DEBD5B9F97302 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,12 +314,138 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02ACEC457E8DEBD5B9F97302 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OLFFIUITests/Pods-OLFFIUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		107D79A260B9A69AC518C9FC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OLFFITests/Pods-OLFFITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35D93A5F96078D977E65F2ED /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		53F3D86965B8C867BA0E1223 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		746152F45A5D84CFA11FD1F8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OLFFI/Pods-OLFFI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		793361217AB965B7D89BCC0F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OLFFITests/Pods-OLFFITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD4704C5A8537930BE66E6EB /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCFEB99C30D175B3AF154686 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OLFFI/Pods-OLFFI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A4D52871C92AA9500805428 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A4D52911C92AA9500805428 /* ViewController.swift in Sources */,
+				2A1958071D0EA13E00821CC1 /* LoginViewController.swift in Sources */,
+				2A4D52911C92AA9500805428 /* WebAppViewController.swift in Sources */,
+				2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */,
+				2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */,
 				2A4D528F1C92AA9500805428 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +541,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "OLFFI/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -389,34 +579,50 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "OLFFI/Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		2A4D52B41C92AA9500805428 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EAC0CFEFDFB06ECCF81383A /* Pods-OLFFI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OLFFI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmorin.OLFFI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olffi.app.olffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2A4D52B51C92AA9500805428 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBBC9DDC12DAF6A1EA488B44 /* Pods-OLFFI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = OLFFI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmorin.OLFFI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olffi.app.olffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		2A4D52B71C92AA9500805428 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F369066E333DF78F6972F85 /* Pods-OLFFITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OLFFITests/Info.plist;
@@ -429,6 +635,7 @@
 		};
 		2A4D52B81C92AA9500805428 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA71ACF053F9DB48FF82B6BA /* Pods-OLFFITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OLFFITests/Info.plist;
@@ -441,6 +648,7 @@
 		};
 		2A4D52BA1C92AA9500805428 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B76BEE870FD76A0D275BC9EA /* Pods-OLFFIUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OLFFIUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -453,6 +661,7 @@
 		};
 		2A4D52BB1C92AA9500805428 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 004A349B2234F5843C49C4E8 /* Pods-OLFFIUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OLFFIUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -482,6 +691,7 @@
 				2A4D52B51C92AA9500805428 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A4D52B61C92AA9500805428 /* Build configuration list for PBXNativeTarget "OLFFITests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +700,7 @@
 				2A4D52B81C92AA9500805428 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A4D52B91C92AA9500805428 /* Build configuration list for PBXNativeTarget "OLFFIUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +709,7 @@
 				2A4D52BB1C92AA9500805428 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
