@@ -28,6 +28,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         textFieldPassword.delegate = self
         textFieldPasswordConfirm.delegate = self
         showLoading(false)
+        textFieldFirstName.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
 

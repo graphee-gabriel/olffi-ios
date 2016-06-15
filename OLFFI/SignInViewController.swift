@@ -21,7 +21,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
         showLoading(false)
-        // Do any additional setup after loading the view.
+        textFieldEmail.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,5 +113,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        resignAllResponders()
+    }
+    
+    func resignAllResponders() {
+        textFieldEmail.resignFirstResponder()
+        textFieldPassword.resignFirstResponder()
     }
 }

@@ -11,13 +11,8 @@ import Foundation
 class BasicAuth {
     
     static func logIn(email:String, password:String, completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, "https://olffi.com/auth",
-            
-            parameters: [
-                "user_email":                   email,
-                "user_password":                password
-            ])
-            
+        Alamofire.request(.GET, "https://olffi.com/api/token")
+            .authenticate(user: email, password: password)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJSON { response in
@@ -42,7 +37,7 @@ class BasicAuth {
     }
     
     static func signUp(firstName:String, lastName:String, email:String, password:String, passwordConfirmation:String, completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, "https://olffi.com/user",
+        Alamofire.request(.POST, "https://olffi.com/api/user",
             
             parameters: [
                 "first_name":                   firstName,
