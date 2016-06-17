@@ -42,10 +42,56 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func onLinkedInLogin() {
-        LISDKSessionManager.createSessionWithAuth([LISDK_BASIC_PROFILE_PERMISSION], state: nil, showGoToAppStoreDialog: true, successBlock: { (returnState) -> Void in
+        LISDKSessionManager.createSessionWithAuth([LISDK_BASIC_PROFILE_PERMISSION, LISDK_EMAILADDRESS_PERMISSION], state: nil, showGoToAppStoreDialog: true, successBlock: { (returnState) -> Void in
             print("success called!")
             if LISDKSessionManager.hasValidSession() && LISDKSessionManager.sharedInstance().session.accessToken != nil {
-                auth.logIn(.LINKEDIN, token: LISDKSessionManager.sharedInstance().session.accessToken.accessTokenValue)
+                
+                LISDKAPIHelper.sharedInstance().getRequest("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address)", success: {
+                    response in
+                    //Do something with the response
+                    print("data: "+response.data)
+                    print("desc: "+response.debugDescription)
+                    
+                    let data = response.data.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+                    
+                    do {
+                        let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
+                        
+//                        let parsed = json as NSDictionary
+//                        let id = parsed.objectForKey("id") as! String
+//                        let firstName = parsed.objectForKey("firstName") as! String
+//                        let lastName = parsed.objectForKey("lastName") as! String
+//
+//                        let emailAddress = parsed.objectForKey("emailAddress") as! String
+//                        
+//                        let hash = (firstName+lastName+emailAddress+id+"FuckL1nk3dIN.com").md5
+                        
+                        
+                        if (json["id"] as? String) != nil
+                            && (json["firstName"] as? String) != nil
+                            && (json["lastName"] as? String) != nil
+                            && (json["emailAddress"] as? String) != nil
+                        {
+                            let id = json["id"] as! String
+                            let firstName = json["firstName"] as! String
+                            let lastName = json["lastName"] as! String
+                            let emailAddress = json["emailAddress"] as! String
+                            let hash = (firstName+lastName+emailAddress+id+"FuckL1nk3dIN.com").md5
+                            BasicAuth.linkedIn(id, firstName: firstName, lastName: lastName, email: emailAddress, hash: hash, completion: { (error) in
+                                if (error) {
+                                    
+                                } else {
+                                    startWebApp(self)
+                                }
+                            })
+                        }   
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                    }, error: {
+                        error in
+                        //Do something with the error
+                })
             }
         }) { (error) -> Void in
             print("Error: \(error)")

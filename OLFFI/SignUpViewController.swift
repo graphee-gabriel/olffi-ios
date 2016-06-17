@@ -18,15 +18,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textViewError: UITextView!
     @IBOutlet weak var viewFields: UIView!
     @IBOutlet weak var viewLoading: UIActivityIndicatorView!
+    var textFields:[UITextField] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldFirstName.delegate = self
-        textFieldLastName.delegate = self
-        textFieldEmail.delegate = self
-        textFieldPassword.delegate = self
-        textFieldPasswordConfirm.delegate = self
+        textFields = [textFieldFirstName, textFieldLastName, textFieldEmail, textFieldPassword, textFieldPasswordConfirm]
+        for textField in textFields {
+            textField.delegate = self
+            textField.tintColor = UIColor.grayColor()
+        }
+        
         showLoading(false)
         textFieldFirstName.becomeFirstResponder()
         // Do any additional setup after loading the view.
@@ -78,7 +80,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             if (errorMessage.isEmpty) {
                 print("Everything went fine")
                 showLoading(true)
-                BasicAuth.signUp(firstName, lastName: lastName, email: email, password: password, passwordConfirmation: passwordConfirm, completion: { (error) in
+                BasicAuth.signUp(firstName, lastName: lastName, email: email, password: password, completion: { (error) in
                     self.showLoading(false)
                     if error {
                         self.showError("Could not connect to the server")
@@ -107,7 +109,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isPasswordValid(password:String) -> Bool {
-        return password.characters.count > 4
+        return password.characters.count >= 6
     }
     
     func isPasswordConfirmed(password:String, passwordConfirm:String) -> Bool {
@@ -142,21 +144,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print("textFieldShouldReturn")
-        if (textField == textFieldFirstName){
-            textFieldLastName.becomeFirstResponder()
-        } else if textField == textFieldLastName {
-            textFieldEmail.becomeFirstResponder()
-        } else if textField == textFieldEmail {
-            textFieldPassword.becomeFirstResponder()
-        } else if textField == textFieldPassword {
-            textFieldPasswordConfirm.becomeFirstResponder()
-        } else if textField == textFieldPasswordConfirm {
-            textField.resignFirstResponder()
-            OnSignUpAttempt(UIButton())
+        let nextIndex = textFields.indexOf(textField)! + 1;
+        if nextIndex < textFields.count {
+            textFields[nextIndex].becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
+            OnSignUpAttempt(UIButton())
         }
         return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        resignAllResponders()
+    }
+    
+    func resignAllResponders() {
+        for textField in textFields {
+            if textField.isFirstResponder() {
+                textField.resignFirstResponder()
+            }
+        }
     }
 }

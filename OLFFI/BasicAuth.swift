@@ -11,40 +11,36 @@ import Foundation
 class BasicAuth {
     
     static func logIn(email:String, password:String, completion: (error:Bool) -> Void) {
-        Alamofire.request(.GET, "https://olffi.com/api/token")
+        Alamofire.request(.GET, "https://olffi.com/api/user")
             .authenticate(user: email, password: password)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJSON { response in
-                debugPrint(response)
+                //debugPrint(response)
                 switch response.result {
                 
                 case .Success(let JSON):
                     let response = JSON as! NSDictionary
-                    //let message = response.objectForKey("message") as! String
                     let token = response.objectForKey("token") as! String
                     auth.logIn(.BASIC, token: token)
                     completion(error: false)
-                    print("Validation Successful")
                 
                 case .Failure(let error):
                     completion(error: true)
                     print(error)
-
                 }
         }
         
     }
     
-    static func signUp(firstName:String, lastName:String, email:String, password:String, passwordConfirmation:String, completion: (error:Bool) -> Void) {
+    static func signUp(firstName:String, lastName:String, email:String, password:String,  completion: (error:Bool) -> Void) {
         Alamofire.request(.POST, "https://olffi.com/api/user",
             
             parameters: [
                 "first_name":                   firstName,
                 "last_name":                    lastName,
                 "user_email":                   email,
-                "user_password":                password,
-                "user_password_confirmation":   passwordConfirmation
+                "user_password":                password
             ])
             
             .validate(statusCode: 200..<300)
@@ -65,5 +61,38 @@ class BasicAuth {
                 }
         }
 
+    }
+    
+    static func linkedIn(linkedinId:String, firstName:String, lastName:String, email:String, hash:String,  completion: (error:Bool) -> Void) {
+        Alamofire.request(.POST, "https://olffi.com/api/user",
+            
+            parameters: [
+                "linkedin_id":                  linkedinId,
+                "first_name":                   firstName,
+                "last_name":                    lastName,
+                "user_email":                   email,
+                "hash":                         hash
+            ])
+            
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON { response in
+                debugPrint(response)
+                switch response.result {
+                
+                case .Success(let JSON):
+                    let response = JSON as! NSDictionary
+                    let token = response.objectForKey("token") as! String
+                    auth.logIn(.LINKEDIN, token: token)
+                    completion(error: false)
+                    
+                case .Failure(let error):
+                    
+                    completion(error: true)
+                    print(error)
+                    
+                }
+        }
+        
     }
 }

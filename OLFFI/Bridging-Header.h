@@ -12,5 +12,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <linkedin-sdk/LISDK.h>
+#import <CommonCrypto/CommonCrypto.h>
 
 #endif /* Bridging_Header_h */

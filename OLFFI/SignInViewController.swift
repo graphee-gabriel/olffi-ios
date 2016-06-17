@@ -20,6 +20,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
+        
+        textFieldEmail.tintColor = UIColor.grayColor()
+        textFieldPassword.tintColor = UIColor.grayColor()
+        
         showLoading(false)
         textFieldEmail.becomeFirstResponder()
     }
