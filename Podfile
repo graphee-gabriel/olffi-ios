@@ -18,3 +18,5 @@ target 'OLFFIUITests' do
 
 end
 
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'

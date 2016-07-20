@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             let lastName = json["lastName"] as! String
                             let emailAddress = json["emailAddress"] as! String
                             let hash = (firstName+lastName+emailAddress+id+"FuckL1nk3dIN.com").md5
-                            BasicAuth.linkedIn(id, firstName: firstName, lastName: lastName, email: emailAddress, hash: hash, completion: { (error) in
+                            AuthServer.linkedIn(id, firstName: firstName, lastName: lastName, email: emailAddress, hash: hash, completion: { (error) in
                                 if (error) {
                                     
                                 } else {

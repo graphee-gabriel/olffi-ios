@@ -1,5 +1,5 @@
 //
-//  BasicAuth.swift
+//  AuthServer.swift
 //  OLFFI
 //
 //  Created by Gabriel Morin on 15/06/2016.
@@ -8,10 +8,11 @@
 import Alamofire
 import Foundation
 
-class BasicAuth {
+class AuthServer {
+    static let URL_USER = "https://olffi.com/api/user"
     
     static func logIn(email:String, password:String, completion: (error:Bool) -> Void) {
-        Alamofire.request(.GET, "https://olffi.com/api/user")
+        Alamofire.request(.GET, URL_USER)
             .authenticate(user: email, password: password)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -34,7 +35,7 @@ class BasicAuth {
     }
     
     static func signUp(firstName:String, lastName:String, email:String, password:String,  completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, "https://olffi.com/api/user",
+        Alamofire.request(.POST, URL_USER,
             
             parameters: [
                 "first_name":                   firstName,
@@ -58,13 +59,12 @@ class BasicAuth {
                     completion(error: true)
                     print(error)
                     
-                }
+            }
         }
-
     }
     
     static func linkedIn(linkedinId:String, firstName:String, lastName:String, email:String, hash:String,  completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, "https://olffi.com/api/user",
+        Alamofire.request(.POST, URL_USER,
             
             parameters: [
                 "linkedin_id":                  linkedinId,
@@ -91,8 +91,7 @@ class BasicAuth {
                     completion(error: true)
                     print(error)
                     
-                }
+            }
         }
-        
     }
 }

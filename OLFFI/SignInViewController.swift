@@ -61,7 +61,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             
             if (errorMessage.isEmpty) {
                 showLoading(true)
-                BasicAuth.logIn(email, password: password, completion: { (error) in
+                AuthServer.logIn(email, password: password, completion: { (error) in
                     self.showLoading(false)
                     if error {
                         self.showError("Could not connect to the server")

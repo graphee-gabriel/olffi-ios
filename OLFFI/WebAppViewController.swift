@@ -41,6 +41,13 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
             webView?.addObserver(self, forKeyPath: "URL", options: .New, context: nil)
             viewActivityIndicator.hidden = false
             viewActivityIndicator.startAnimating()
+            NotificationToken.send() { (error) in
+                if (error) {
+                    print("could not send notification token to server")
+                } else {
+                    print("sucessfully sent notification token to server")
+                }
+            }
         }
     }
     

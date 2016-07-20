@@ -80,7 +80,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             if (errorMessage.isEmpty) {
                 print("Everything went fine")
                 showLoading(true)
-                BasicAuth.signUp(firstName, lastName: lastName, email: email, password: password, completion: { (error) in
+                AuthServer.signUp(firstName, lastName: lastName, email: email, password: password, completion: { (error) in
                     self.showLoading(false)
                     if error {
                         self.showError("Could not connect to the server")
