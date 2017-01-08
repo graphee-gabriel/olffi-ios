@@ -21,6 +21,10 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView?
     var webAppIsReady = false
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     override func loadView() {
         super.loadView()
         webView = WKWebView()
@@ -37,9 +41,9 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
             self.webViewContainer.addSubview(webView!)
             let url = getUrlWithCredentials()
             print(url)
-            webView?.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
-            webView?.addObserver(self, forKeyPath: "URL", options: .New, context: nil)
-            viewActivityIndicator.hidden = false
+            _ = webView?.load(NSURLRequest(url: NSURL(string: url)! as URL) as URLRequest)
+            webView?.addObserver(self, forKeyPath: "URL", options: .new, context: nil)
+            viewActivityIndicator.isHidden = false
             viewActivityIndicator.startAnimating()
             NotificationToken.send() { (error) in
                 if (error) {
@@ -54,12 +58,12 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
     deinit {
         webView?.removeObserver(self, forKeyPath: "URL")
     }
-    
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+   
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "URL" {
             if webView != nil {
-                if let url = webView?.URL?.absoluteString {
-                    if url.containsString("logout") {
+                if let url = webView?.url?.absoluteString {
+                    if url.range(of: "logout") != nil {
                         logOut()
                     }
                 }
@@ -68,15 +72,15 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if !webAppIsReady {
             webAppIsReady = true
-            UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.viewLoading.alpha = 0.0
                 }, completion: {
                     (finished: Bool) -> Void in
                     self.viewActivityIndicator.stopAnimating()
-                    self.viewLoading.hidden = true
+                    self.viewLoading.isHidden = true
                 })
         }
     }
@@ -84,7 +88,7 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLayoutSubviews() {
         // Garranty full screen - Remove to make space for status bar
         if webView != nil {
-            webView?.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+            webView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         }
     }
 
@@ -106,9 +110,9 @@ class WebAppViewController: UIViewController, WKNavigationDelegate {
     
     func logOut() {
         auth.logOut()
-        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+        let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
         
-        self.presentViewController(loginViewController!, animated: true, completion: nil)
+        self.present(loginViewController!, animated: true, completion: nil)
     }
 }
 

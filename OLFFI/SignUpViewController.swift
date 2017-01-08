@@ -26,10 +26,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         textFields = [textFieldFirstName, textFieldLastName, textFieldEmail, textFieldPassword, textFieldPasswordConfirm]
         for textField in textFields {
             textField.delegate = self
-            textField.tintColor = UIColor.grayColor()
+            textField.tintColor = UIColor.gray
         }
         
-        showLoading(false)
+        showLoading(show: false)
         textFieldFirstName.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
@@ -39,62 +39,62 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     @IBAction func onCancel(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: {})
+        self.dismiss(animated: true, completion: {})
     }
     
     @IBAction func OnSignUpAttempt(sender: UIButton) {
         var errorMessage = ""
         var errorView:UITextField = UITextField()
         hideError()
-        showLoading(false)
+        showLoading(show: false)
         
-        if let
-            firstName = textFieldFirstName.text,
-            lastName = textFieldLastName.text,
-            email = textFieldEmail.text,
-            password = textFieldPassword.text,
-            passwordConfirm = textFieldPasswordConfirm.text {
+        if
+            let firstName = textFieldFirstName.text,
+            let lastName = textFieldLastName.text,
+            let email = textFieldEmail.text,
+            let password = textFieldPassword.text,
+            let passwordConfirm = textFieldPasswordConfirm.text {
             
-            if !isNameValid(firstName) {
+            if !isNameValid(name: firstName) {
                 errorMessage = "Please enter a correct first name"
                 errorView = textFieldFirstName
-            } else if !isNameValid(lastName) {
+            } else if !isNameValid(name: lastName) {
                 errorMessage = "Please enter a correct last name"
                 errorView = textFieldLastName
-            } else if !isEmailValid(email) {
+            } else if !isEmailValid(email: email) {
                 errorMessage = "Please enter a correct email"
                 errorView = textFieldEmail
-            } else if !isPasswordValid(password) {
+            } else if !isPasswordValid(password: password) {
                 errorMessage = "The password you provided is too short"
                 errorView = textFieldPassword
-            } else if !isPasswordConfirmed(password, passwordConfirm: passwordConfirm) {
+            } else if !isPasswordConfirmed(password: password, passwordConfirm: passwordConfirm) {
                 errorMessage = "The passwords you provided are not identical"
                 errorView = textFieldPassword
             }
             
             if (errorMessage.isEmpty) {
                 print("Everything went fine")
-                showLoading(true)
-                AuthServer.signUp(firstName, lastName: lastName, email: email, password: password, completion: { (error) in
-                    self.showLoading(false)
+                showLoading(show: true)
+                AuthServer.signUp(firstName: firstName, lastName: lastName, email: email, password: password, completion: { (error) in
+                    self.showLoading(show: false)
                     if error {
-                        self.showError("Could not connect to the server")
+                        self.showError(error: "Could not connect to the server")
                     } else {
-                        self.showSuccess({
-                            startSignIn(self, modalTransitionStyle: .CoverVertical)
+                        self.showSuccess(completion: {
+                            startSignIn(currentViewController: self, modalTransitionStyle: .coverVertical)
                         })
                     }
 
                 })
             } else {
-                showError(errorMessage)
+                showError(error: errorMessage)
                 errorView.becomeFirstResponder()
-                errorView.selectedTextRange = errorView.textRangeFromPosition(errorView.beginningOfDocument, toPosition: errorView.endOfDocument)
+                errorView.selectedTextRange = errorView.textRange(from:errorView.beginningOfDocument, to: errorView.endOfDocument)
             }
 
         }
@@ -105,7 +105,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isEmailValid(email:String) -> Bool {
-        return email.containsString("@") && email.containsString(".")
+        return email.range(of:"@") != nil && email.range(of: ".") != nil
     }
     
     func isPasswordValid(password:String) -> Bool {
@@ -117,8 +117,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showLoading(show:Bool) {
-        viewFields.hidden = show
-        viewLoading.hidden = !show
+        viewFields.isHidden = show
+        viewLoading.isHidden = !show
         if (show) {
             viewLoading.startAnimating()
         } else {
@@ -127,40 +127,40 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     func showError(error:String) {
-        textViewError.hidden = false
+        textViewError.isHidden = false
         textViewError.text = error
     }
     
     func hideError() {
-        textViewError.hidden = true
+        textViewError.isHidden = true
         textViewError.text = ""
     }
     
-    func showSuccess(completion: () -> Void) {
+    func showSuccess(completion: @escaping () -> Void) {
         let alertController = UIAlertController(title: "Success", message:
-            "An e-mail has been sent to you. Please open it and click on the confirmation link to proceed.", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: completion)
+            "An e-mail has been sent to you. Please open it and click on the confirmation link to proceed.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: completion)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let nextIndex = textFields.indexOf(textField)! + 1;
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextIndex = textFields.index(of: textField)! + 1;
         if nextIndex < textFields.count {
             textFields[nextIndex].becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-            OnSignUpAttempt(UIButton())
+            OnSignUpAttempt(sender: UIButton())
         }
         return false
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         resignAllResponders()
     }
     
     func resignAllResponders() {
         for textField in textFields {
-            if textField.isFirstResponder() {
+            if textField.isFirstResponder {
                 textField.resignFirstResponder()
             }
         }

@@ -11,8 +11,8 @@ import Foundation
 class AuthServer {
     static let URL_USER = "https://olffi.com/api/user"
     
-    static func logIn(email:String, password:String, completion: (error:Bool) -> Void) {
-        Alamofire.request(.GET, URL_USER)
+    static func logIn(email:String, password:String, completion: @escaping (_ error:Bool) -> Void) {
+        Alamofire.request(URL_USER, method:.get)
             .authenticate(user: email, password: password)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -20,22 +20,22 @@ class AuthServer {
                 //debugPrint(response)
                 switch response.result {
                 
-                case .Success(let JSON):
+                case .success(let JSON):
                     let response = JSON as! NSDictionary
-                    let token = response.objectForKey("token") as! String
-                    auth.logIn(.BASIC, token: token)
-                    completion(error: false)
+                    let token = response.object(forKey: "token") as! String
+                    auth.logIn(type: .BASIC, token: token)
+                    completion(false)
                 
-                case .Failure(let error):
-                    completion(error: true)
+                case .failure(let error):
+                    completion(true)
                     print(error)
                 }
         }
         
     }
     
-    static func signUp(firstName:String, lastName:String, email:String, password:String,  completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, URL_USER,
+    static func signUp(firstName:String, lastName:String, email:String, password:String,  completion: @escaping (_ error:Bool) -> Void) {
+        Alamofire.request(URL_USER, method: .post,
             
             parameters: [
                 "first_name":                   firstName,
@@ -50,21 +50,21 @@ class AuthServer {
                 debugPrint(response)
                 switch response.result {
                     
-                case .Success:
-                    completion(error: false)
+                case .success:
+                    completion(false)
                     print("Validation Successful")
                     
-                case .Failure(let error):
+                case .failure(let error):
                     
-                    completion(error: true)
+                    completion(true)
                     print(error)
                     
             }
         }
     }
     
-    static func linkedIn(linkedinId:String, firstName:String, lastName:String, email:String, hash:String,  completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, URL_USER,
+    static func linkedIn(linkedinId:String, firstName:String, lastName:String, email:String, hash:String,  completion: @escaping (_ error:Bool) -> Void) {
+        Alamofire.request(URL_USER, method: .post,
             
             parameters: [
                 "linkedin_id":                  linkedinId,
@@ -80,15 +80,15 @@ class AuthServer {
                 debugPrint(response)
                 switch response.result {
                 
-                case .Success(let JSON):
+                case .success(let JSON):
                     let response = JSON as! NSDictionary
-                    let token = response.objectForKey("token") as! String
-                    auth.logIn(.LINKEDIN, token: token)
-                    completion(error: false)
+                    let token = response.object(forKey: "token") as! String
+                    auth.logIn(type: .LINKEDIN, token: token)
+                    completion(false)
                     
-                case .Failure(let error):
+                case .failure(let error):
                     
-                    completion(error: true)
+                    completion(true)
                     print(error)
                     
             }

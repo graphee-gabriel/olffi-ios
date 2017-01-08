@@ -21,10 +21,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
         
-        textFieldEmail.tintColor = UIColor.grayColor()
-        textFieldPassword.tintColor = UIColor.grayColor()
+        textFieldEmail.tintColor = UIColor.gray
+        textFieldPassword.tintColor = UIColor.gray
         
-        showLoading(false)
+        
+        showLoading(show: false)
         textFieldEmail.becomeFirstResponder()
     }
     
@@ -33,53 +34,51 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @IBAction func onCancel(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: {})
+        self.dismiss(animated: true, completion: {})
     }
     
     @IBAction func onSignInAttempt(sender: UIButton) {
         var errorMessage = ""
         var errorView:UITextField = UITextField()
         hideError()
-        showLoading(false)
+        showLoading(show: false)
         
-        if let
-            email = textFieldEmail.text,
-            password = textFieldPassword.text {
-            
-            if !isEmailValid(email) {
+        if let email = textFieldEmail.text, let password = textFieldPassword.text {
+            if !isEmailValid(email: email) {
                 errorMessage = "Please enter a correct email"
                 errorView = textFieldEmail
-            } else if !isPasswordValid(password) {
+            } else if !isPasswordValid(password: password) {
                 errorMessage = "The password you provided is too short"
                 errorView = textFieldPassword
             }
             
             if (errorMessage.isEmpty) {
-                showLoading(true)
-                AuthServer.logIn(email, password: password, completion: { (error) in
-                    self.showLoading(false)
+                showLoading(show: true)
+                AuthServer.logIn(email: email, password: password, completion: { (error) in
+                    self.showLoading(show: false)
                     if error {
-                        self.showError("Could not connect to the server")
+                        self.showError(error: "Could not connect to the server")
                     } else {
-                        startWebApp(self)
+                        startWebApp(currentViewController: self)
                     }
                 })
             } else {
-                showError(errorMessage)
+                showError(error: errorMessage)
                 errorView.becomeFirstResponder()
-                errorView.selectedTextRange = errorView.textRangeFromPosition(errorView.beginningOfDocument, toPosition: errorView.endOfDocument)
+                errorView.selectedTextRange = errorView.textRange(from:errorView.beginningOfDocument, to: errorView.endOfDocument)
             }
             
         }
     }
     
     func isEmailValid(email:String) -> Bool {
-        return email.containsString("@") && email.containsString(".")
+        return email.range(of: "@") != nil && email.range(of: ".") != nil
+        
     }
     
     func isPasswordValid(password:String) -> Bool {
@@ -87,8 +86,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showLoading(show:Bool) {
-        viewFields.hidden = show
-        viewLoading.hidden = !show
+        viewFields.isHidden = show
+        viewLoading.isHidden = !show
         if (show) {
             viewLoading.startAnimating()
         } else {
@@ -97,29 +96,29 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
     func showError(error:String) {
-        textViewError.hidden = false
+        textViewError.isHidden = false
         textViewError.text = error
     }
     
     func hideError() {
-        textViewError.hidden = true
+        textViewError.isHidden = true
         textViewError.text = ""
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("textFieldShouldReturn")
      if textField == textFieldEmail {
             textFieldPassword.becomeFirstResponder()
         } else if textField == textFieldPassword {
             textField.resignFirstResponder()
-            onSignInAttempt(UIButton())
+            onSignInAttempt(sender: UIButton())
         } else {
             textField.resignFirstResponder()
         }
         return false
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         resignAllResponders()
     }
     

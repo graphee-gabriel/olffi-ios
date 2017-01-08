@@ -27,14 +27,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if auth.isLoggedIn() {
-            startWebApp(self)
+            startWebApp(currentViewController: self)
         }
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @IBAction func onLinkedInLogin(sender: UIButton) {
@@ -42,20 +42,20 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func onLinkedInLogin() {
-        LISDKSessionManager.createSessionWithAuth([LISDK_BASIC_PROFILE_PERMISSION, LISDK_EMAILADDRESS_PERMISSION], state: nil, showGoToAppStoreDialog: true, successBlock: { (returnState) -> Void in
+        LISDKSessionManager.createSession(withAuth: [LISDK_BASIC_PROFILE_PERMISSION, LISDK_EMAILADDRESS_PERMISSION], state: nil, showGoToAppStoreDialog: true, successBlock: { (returnState) -> Void in
             print("success called!")
             if LISDKSessionManager.hasValidSession() && LISDKSessionManager.sharedInstance().session.accessToken != nil {
                 
                 LISDKAPIHelper.sharedInstance().getRequest("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address)", success: {
                     response in
                     //Do something with the response
-                    print("data: "+response.data)
+                    print("data: "+(response?.data)!)
                     print("desc: "+response.debugDescription)
                     
-                    let data = response.data.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+                    let data = response?.data.data(using: String.Encoding.utf8, allowLossyConversion: false)!
                     
                     do {
-                        let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
+                        let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
                         
 //                        let parsed = json as NSDictionary
 //                        let id = parsed.objectForKey("id") as! String
@@ -77,11 +77,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             let lastName = json["lastName"] as! String
                             let emailAddress = json["emailAddress"] as! String
                             let hash = (firstName+lastName+emailAddress+id+"FuckL1nk3dIN.com").md5
-                            AuthServer.linkedIn(id, firstName: firstName, lastName: lastName, email: emailAddress, hash: hash, completion: { (error) in
+                            AuthServer.linkedIn(linkedinId: id, firstName: firstName, lastName: lastName, email: emailAddress, hash: hash!, completion: { (error) in
                                 if (error) {
                                     
                                 } else {
-                                    startWebApp(self)
+                                    startWebApp(currentViewController: self)
                                 }
                             })
                         }   
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         buttonFBLogin.delegate = self
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
         if error != nil {
             print("error")
@@ -111,11 +111,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("result cancelled")
         } else {
             print("success logging")
-            auth.logIn(.FACEBOOK, token: result.token.tokenString)
+            auth.logIn(type: .FACEBOOK, token: result.token.tokenString)
         }
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
     }
 }

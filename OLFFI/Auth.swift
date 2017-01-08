@@ -1,3 +1,4 @@
+
 //
 //  Auth.swift
 //  OLFFI
@@ -38,15 +39,15 @@ class Auth {
     }
     
     func save() {
-        NSUserDefaults.standardUserDefaults().setValue(tokenType.rawValue, forKey: "tokenType")
-        NSUserDefaults.standardUserDefaults().setValue(tokenValue, forKey: "tokenValue")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.setValue(tokenType.rawValue, forKey: "tokenType")
+        UserDefaults.standard.setValue(tokenValue, forKey: "tokenValue")
+        UserDefaults.standard.synchronize()
     }
     
     func load() {
-        if let
-            tokenTypeRawValue = NSUserDefaults.standardUserDefaults().valueForKey("tokenType") as! String?,
-            tokenValue = NSUserDefaults.standardUserDefaults().valueForKey("tokenValue") as! String?
+        if
+            let tokenTypeRawValue = UserDefaults.standard.value(forKey: "tokenType") as! String?,
+            let tokenValue = UserDefaults.standard.value(forKey: "tokenValue") as! String?
         {
             self.tokenType = TokenType(rawValue: tokenTypeRawValue)!
             self.tokenValue = tokenValue

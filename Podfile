@@ -6,7 +6,7 @@ target 'OLFFI' do
 
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
-pod 'Alamofire'
+pod 'Alamofire', '~> 4.0'
 
 end
 

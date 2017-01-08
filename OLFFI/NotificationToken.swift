@@ -13,8 +13,8 @@ import Firebase
 class NotificationToken {
     static let URL_NOTIFICATIONS = "https://www.olffi.com/api/token"
     
-    static func send(token:String, completion: (error:Bool) -> Void) {
-        Alamofire.request(.POST, URL_NOTIFICATIONS,
+    static func send(token:String, completion: @escaping (_ error:Bool) -> Void) {
+        Alamofire.request(URL_NOTIFICATIONS, method: .post,
             
             parameters: [
                 "type"  : "notification",
@@ -27,22 +27,22 @@ class NotificationToken {
                 debugPrint(response)
                 switch response.result {
                     
-                case .Success:
-                    completion(error: false)
+                case .success:
+                    completion(false)
                     
-                case .Failure(let error):
-                    completion(error: true)
+                case .failure(let error):
+                    completion(true)
                     print(error)
                 }
         }
     }
     
-    static func send(completion: (error:Bool) -> Void) {
+    static func send(completion: (_ error:Bool) -> Void) {
         
         if let token = FIRInstanceID.instanceID().token() {
             print("InstanceID token: \(token)")
             if (auth.isLoggedIn()) {
-                send(token) { (error) in
+                send(token: token) { (error) in
                     if (error) {
                         print("could not send notification token to server")
                     } else {
