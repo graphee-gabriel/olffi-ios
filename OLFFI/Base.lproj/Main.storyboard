@@ -316,7 +316,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
-                                    <action selector="OnSignUpAttempt:" destination="Le7-hq-mdT" eventType="touchUpInside" id="3LS-sW-6wz"/>
+                                    <action selector="OnSignUpAttemptWithSender:" destination="Le7-hq-mdT" eventType="touchUpInside" id="AIw-bg-bQW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEE-03-fLk">
@@ -324,7 +324,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <action selector="onCancel:" destination="Le7-hq-mdT" eventType="touchUpInside" id="UnM-T2-tvG"/>
+                                    <action selector="onCancelWithSender:" destination="Le7-hq-mdT" eventType="touchUpInside" id="IRl-md-YkF"/>
                                 </connections>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aRP-Jx-NXg" userLabel="Error">
@@ -436,7 +436,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
-                                    <action selector="onSignInAttempt:" destination="Sma-1m-FAo" eventType="touchUpInside" id="eS6-0m-M3Y"/>
+                                    <action selector="onSignInAttemptWithSender:" destination="Sma-1m-FAo" eventType="touchUpInside" id="C6f-h6-6Ew"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elp-at-PwG">
@@ -444,7 +444,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <action selector="onCancel:" destination="Sma-1m-FAo" eventType="touchUpInside" id="W0t-9r-YH2"/>
+                                    <action selector="onCancelWithSender:" destination="Sma-1m-FAo" eventType="touchUpInside" id="hcf-pd-E7M"/>
                                 </connections>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Error message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0wB-7v-YOm" userLabel="Error">
