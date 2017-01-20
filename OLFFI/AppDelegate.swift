@@ -14,7 +14,7 @@ var auth = Auth.init()
 
 func startWebApp(currentViewController:UIViewController) {
     let webAppViewController = currentViewController.storyboard!.instantiateViewController(withIdentifier:
-        "WebAppViewController") as? WebAppViewController
+        "MenuViewController") as? MenuViewController
     webAppViewController?.modalPresentationStyle = .custom
     webAppViewController?.modalTransitionStyle = .crossDissolve
     currentViewController.present(webAppViewController!, animated: true, completion: nil)
@@ -44,7 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         auth.load()
         registerForPushNotifications(application: application)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.window!.rootViewController = storyboard.instantiateViewController(withIdentifier: auth.isLoggedIn() ? "WebAppViewController" : "LoginViewController")
+        if auth.isLoggedIn() {
+            let vc = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.window!.rootViewController = navigationController
+        } else {
+            self.window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
+        
+        
+
+        
+        
+        
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A11D53F1D226905006D8605 /* NotificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11D53E1D226905006D8605 /* NotificationToken.swift */; };
 		2A1958071D0EA13E00821CC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1958061D0EA13E00821CC1 /* LoginViewController.swift */; };
+		2A27D95A1E238DD700C15606 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D9591E238DD700C15606 /* SearchViewController.swift */; };
+		2A27D95E1E238E0C00C15606 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D95D1E238E0C00C15606 /* MenuViewController.swift */; };
 		2A4D528F1C92AA9500805428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D528E1C92AA9500805428 /* AppDelegate.swift */; };
 		2A4D52911C92AA9500805428 /* WebAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4D52901C92AA9500805428 /* WebAppViewController.swift */; };
 		2A4D52941C92AA9500805428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D52921C92AA9500805428 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		2AAD8DB61D114080000B5C7E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB51D114080000B5C7E /* Auth.swift */; };
 		2AAD8DB81D11427A000B5C7E /* AuthServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB71D11427A000B5C7E /* AuthServer.swift */; };
 		2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */; };
+		2AF8783A1E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF878391E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift */; };
+		2AFFE9F91E3004810082E01D /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFE9F81E3004810082E01D /* SearchResultResponse.swift */; };
 		910E4C8A8127E5A684E7C5D3 /* Pods_OLFFIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64BA4ACF280A1970F4D887B /* Pods_OLFFIUITests.framework */; };
 		93C006D5708F4999A6009F5A /* Pods_OLFFI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */; };
 		DF84EDFC4E131904BD801D1E /* Pods_OLFFITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C96CB26C9724F2849C46B9 /* Pods_OLFFITests.framework */; };
@@ -52,6 +56,8 @@
 		14C96CB26C9724F2849C46B9 /* Pods_OLFFITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLFFITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A11D53E1D226905006D8605 /* NotificationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
 		2A1958061D0EA13E00821CC1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2A27D9591E238DD700C15606 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2A27D95D1E238E0C00C15606 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2A4D528B1C92AA9500805428 /* OLFFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLFFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A4D528E1C92AA9500805428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A4D52901C92AA9500805428 /* WebAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 		2AAD8DB51D114080000B5C7E /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		2AAD8DB71D11427A000B5C7E /* AuthServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServer.swift; sourceTree = "<group>"; };
 		2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2AF878391E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgoliaSearchManager.swift; sourceTree = "<group>"; };
+		2AFFE9F81E3004810082E01D /* SearchResultResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		3EAC0CFEFDFB06ECCF81383A /* Pods-OLFFI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFI/Pods-OLFFI.debug.xcconfig"; sourceTree = "<group>"; };
 		718FDE5C0E349D42CD4773CB /* Pods_OLFFI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLFFI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F369066E333DF78F6972F85 /* Pods-OLFFITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLFFITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLFFITests/Pods-OLFFITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +132,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2A04A7371E327B0B0055E832 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				2AFFE9F81E3004810082E01D /* SearchResultResponse.swift */,
+			);
+			name = Json;
+			sourceTree = "<group>";
+		};
+		2A27D95F1E238E1D00C15606 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A1958061D0EA13E00821CC1 /* LoginViewController.swift */,
+				2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */,
+				2AAD8DB31D102956000B5C7E /* SignInViewController.swift */,
+				2A4D52901C92AA9500805428 /* WebAppViewController.swift */,
+				2A27D95D1E238E0C00C15606 /* MenuViewController.swift */,
+				2A27D9591E238DD700C15606 /* SearchViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		2A4D52821C92AA9500805428 = {
 			isa = PBXGroup;
 			children = (
@@ -151,11 +180,10 @@
 		2A4D528D1C92AA9500805428 /* OLFFI */ = {
 			isa = PBXGroup;
 			children = (
+				2A04A7371E327B0B0055E832 /* Json */,
+				2A27D95F1E238E1D00C15606 /* ViewController */,
 				2A4D528E1C92AA9500805428 /* AppDelegate.swift */,
-				2A1958061D0EA13E00821CC1 /* LoginViewController.swift */,
-				2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */,
-				2AAD8DB31D102956000B5C7E /* SignInViewController.swift */,
-				2A4D52901C92AA9500805428 /* WebAppViewController.swift */,
+				2AF878391E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift */,
 				2AAD8DB51D114080000B5C7E /* Auth.swift */,
 				2A11D53E1D226905006D8605 /* NotificationToken.swift */,
 				2AAD8DB71D11427A000B5C7E /* AuthServer.swift */,
@@ -487,11 +515,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A27D95A1E238DD700C15606 /* SearchViewController.swift in Sources */,
 				2A1958071D0EA13E00821CC1 /* LoginViewController.swift in Sources */,
 				2A4D52911C92AA9500805428 /* WebAppViewController.swift in Sources */,
 				2A62448E1D12EABE0034CE2F /* MD5.swift in Sources */,
+				2A27D95E1E238E0C00C15606 /* MenuViewController.swift in Sources */,
 				2A11D53F1D226905006D8605 /* NotificationToken.swift in Sources */,
 				2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */,
+				2AFFE9F91E3004810082E01D /* SearchResultResponse.swift in Sources */,
+				2AF8783A1E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift in Sources */,
 				2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */,
 				2AAD8DB81D11427A000B5C7E /* AuthServer.swift in Sources */,
 				2A4D528F1C92AA9500805428 /* AppDelegate.swift in Sources */,
