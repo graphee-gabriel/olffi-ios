@@ -12,20 +12,7 @@ import Firebase
 
 var auth = Auth.init()
 
-func startWebApp(currentViewController:UIViewController) {
-    let webAppViewController = currentViewController.storyboard!.instantiateViewController(withIdentifier:
-        "MenuViewController") as? MenuViewController
-    webAppViewController?.modalPresentationStyle = .custom
-    webAppViewController?.modalTransitionStyle = .crossDissolve
-    currentViewController.present(webAppViewController!, animated: true, completion: nil)
-}
 
-func startSignIn(currentViewController:UIViewController, modalTransitionStyle:UIModalTransitionStyle) {
-    let signInViewController = currentViewController.storyboard!.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController
-    signInViewController?.modalPresentationStyle = .custom
-    signInViewController?.modalTransitionStyle = modalTransitionStyle
-    currentViewController.present(signInViewController!, animated: true, completion: nil)
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -9,11 +9,19 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
     override func viewDidLoad() {
+        print("------>>>>>> VIEW DID LOAD SERIOUSLY")
         super.viewDidLoad()
-        print("dam it dam it dam it")
-        setupNavigationBarLogo()
+        print("------>>>>>> dam it dam it dam it")
+        //setupNavigationBarLogo()
+        NotificationToken.send() { (error) in
+            if (error) {
+                print("could not send notification token to server")
+            } else {
+                print("sucessfully sent notification token to server")
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -29,15 +37,29 @@ class MenuViewController: UIViewController {
         self.navigationItem.titleView = UIImageView.init(image: UIImage(named:"logo"))
         print("logo image loaded")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        var relativeUrl:String?
+        print("prepare for segue")
+        if let identifier = segue.identifier {
+            print("identifier: \(identifier)")
+            
+            switch identifier {
+            case "goto_calendar":
+                relativeUrl = "/program/calendar.html"
+            case "goto_publication":
+                relativeUrl = "/publication.html"
+            case "goto_compare":
+                relativeUrl = "/program/compare.html"
+            default:
+                break
+            }
+            
+            if relativeUrl != nil {
+                let controller = segue.destination as! WebViewController
+                controller.url = UrlBuilder.buildUrl(from: relativeUrl!)
+            }
+            
+        }
     }
-    */
-
 }

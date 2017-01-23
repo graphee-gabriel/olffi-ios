@@ -15,14 +15,16 @@ struct SearchResultResponse: Mappable {
     var page: Int!
     var nbHits: Int!
     var nbPages: Int!
+    var query: String!
     
-    init?(_ map: Map) {}
+    init?(map: Map) {}
     
     mutating func mapping(map: Map) {
         hits <- map["hits"]
         page <- map["page"]
         nbHits <- map["nbHits"]
         nbPages <- map["nbPages"]
+        query <- map["query"]
     }
 }
 
@@ -37,7 +39,7 @@ struct SearchResultHit: Mappable {
     var project_type: [String]!
     var activity: String!
     
-    init?(_ map: Map) {}
+    init?(map: Map) {}
     
     mutating func mapping(map: Map) {
         program_name <- map["program_name"]
