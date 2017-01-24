@@ -11,10 +11,8 @@ import UIKit
 class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
-        print("------>>>>>> VIEW DID LOAD SERIOUSLY")
         super.viewDidLoad()
-        print("------>>>>>> dam it dam it dam it")
-        //setupNavigationBarLogo()
+        setupNavigationBarLogo()
         NotificationToken.send() { (error) in
             if (error) {
                 print("could not send notification token to server")

@@ -23,6 +23,9 @@
 		2A64D3F01E36176A0035C58F /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64D3EF1E36176A0035C58F /* AppNavigator.swift */; };
 		2A64D3F21E3634450035C58F /* UrlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64D3F11E3634450035C58F /* UrlBuilder.swift */; };
 		2A64D3F71E3687A90035C58F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64D3F61E3687A90035C58F /* WebViewController.swift */; };
+		2A64D3FA1E377DFE0035C58F /* GetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64D3F91E377DFE0035C58F /* GetService.swift */; };
+		2A64D3FC1E3783BB0035C58F /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64D3FB1E3783BB0035C58F /* CountryTableViewController.swift */; };
+		2A64D4001E378FF70035C58F /* CoproductionTreatyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64D3FF1E378FF70035C58F /* CoproductionTreatyTableViewController.swift */; };
 		2A7E7C4D1D21A7CE0089A814 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7E7C4C1D21A7CE0089A814 /* GoogleService-Info.plist */; };
 		2A7E7C4E1D21A7CE0089A814 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7E7C4C1D21A7CE0089A814 /* GoogleService-Info.plist */; };
 		2A7E7C4F1D21A7CE0089A814 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7E7C4C1D21A7CE0089A814 /* GoogleService-Info.plist */; };
@@ -80,6 +83,9 @@
 		2A64D3EF1E36176A0035C58F /* AppNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		2A64D3F11E3634450035C58F /* UrlBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlBuilder.swift; sourceTree = "<group>"; };
 		2A64D3F61E3687A90035C58F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		2A64D3F91E377DFE0035C58F /* GetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetService.swift; sourceTree = "<group>"; };
+		2A64D3FB1E3783BB0035C58F /* CountryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
+		2A64D3FF1E378FF70035C58F /* CoproductionTreatyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoproductionTreatyTableViewController.swift; sourceTree = "<group>"; };
 		2A7E7C4C1D21A7CE0089A814 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AAD8DA91D0F4898000B5C7E /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
@@ -153,11 +159,9 @@
 		2A27D95F1E238E1D00C15606 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2A1958061D0EA13E00821CC1 /* LoginViewController.swift */,
-				2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */,
-				2AAD8DB31D102956000B5C7E /* SignInViewController.swift */,
+				2A64D3FE1E3783F70035C58F /* EntryPointViewController */,
+				2A64D3FD1E3783CC0035C58F /* TableViewController */,
 				2A27D95D1E238E0C00C15606 /* MenuViewController.swift */,
-				2A64D3ED1E35F1A30035C58F /* SearchTableViewController.swift */,
 				2A64D3F61E3687A90035C58F /* WebViewController.swift */,
 			);
 			name = ViewController;
@@ -191,14 +195,13 @@
 			isa = PBXGroup;
 			children = (
 				2A4D52921C92AA9500805428 /* Main.storyboard */,
+				2A64D3F81E377B510035C58F /* HttpRequest */,
 				2A64D3F31E36372C0035C58F /* Navigation */,
 				2A04A7371E327B0B0055E832 /* Json */,
 				2A27D95F1E238E1D00C15606 /* ViewController */,
 				2A4D528E1C92AA9500805428 /* AppDelegate.swift */,
 				2AF878391E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift */,
 				2AAD8DB51D114080000B5C7E /* Auth.swift */,
-				2A11D53E1D226905006D8605 /* NotificationToken.swift */,
-				2AAD8DB71D11427A000B5C7E /* AuthServer.swift */,
 				2A62448D1D12EABE0034CE2F /* MD5.swift */,
 				2A4D529A1C92AA9500805428 /* Info.plist */,
 				2A4D52971C92AA9500805428 /* LaunchScreen.storyboard */,
@@ -233,6 +236,36 @@
 				2A64D3EF1E36176A0035C58F /* AppNavigator.swift */,
 			);
 			name = Navigation;
+			sourceTree = "<group>";
+		};
+		2A64D3F81E377B510035C58F /* HttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				2A11D53E1D226905006D8605 /* NotificationToken.swift */,
+				2AAD8DB71D11427A000B5C7E /* AuthServer.swift */,
+				2A64D3F91E377DFE0035C58F /* GetService.swift */,
+			);
+			name = HttpRequest;
+			sourceTree = "<group>";
+		};
+		2A64D3FD1E3783CC0035C58F /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A64D3ED1E35F1A30035C58F /* SearchTableViewController.swift */,
+				2A64D3FB1E3783BB0035C58F /* CountryTableViewController.swift */,
+				2A64D3FF1E378FF70035C58F /* CoproductionTreatyTableViewController.swift */,
+			);
+			name = TableViewController;
+			sourceTree = "<group>";
+		};
+		2A64D3FE1E3783F70035C58F /* EntryPointViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A1958061D0EA13E00821CC1 /* LoginViewController.swift */,
+				2ADFF06F1D0ECE8400D1224F /* SignUpViewController.swift */,
+				2AAD8DB31D102956000B5C7E /* SignInViewController.swift */,
+			);
+			name = EntryPointViewController;
 			sourceTree = "<group>";
 		};
 		C411C057F343F796801E4B58 /* Frameworks */ = {
@@ -544,10 +577,13 @@
 				2A64D3EE1E35F1A30035C58F /* SearchTableViewController.swift in Sources */,
 				2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */,
 				2AFFE9F91E3004810082E01D /* SearchResultResponse.swift in Sources */,
+				2A64D3FC1E3783BB0035C58F /* CountryTableViewController.swift in Sources */,
 				2AF8783A1E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift in Sources */,
 				2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */,
 				2A64D3F21E3634450035C58F /* UrlBuilder.swift in Sources */,
+				2A64D3FA1E377DFE0035C58F /* GetService.swift in Sources */,
 				2AAD8DB81D11427A000B5C7E /* AuthServer.swift in Sources */,
+				2A64D4001E378FF70035C58F /* CoproductionTreatyTableViewController.swift in Sources */,
 				2A4D528F1C92AA9500805428 /* AppDelegate.swift in Sources */,
 				2A64D3EC1E32884D0035C58F /* CoproductionTreatyResponse.swift in Sources */,
 				2AAD8DB61D114080000B5C7E /* Auth.swift in Sources */,
