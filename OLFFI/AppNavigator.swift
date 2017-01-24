@@ -11,28 +11,37 @@ import Foundation
 class AppNavigator {
     var originalViewController:UIViewController
     var storyboard:UIStoryboard
-    var navigationController:UINavigationController
+    var navigationController:UINavigationController?
     
     init(from viewController:UIViewController) {
         self.originalViewController = viewController
         self.storyboard = viewController.storyboard!
-        self.navigationController = viewController.navigationController!
+        self.navigationController = viewController.navigationController
     }
     
     func startWebApp(at url:String) {
         let vc = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
         vc.url = url
-        navigationController.pushViewController(vc, animated: true)
+        navigationController!.pushViewController(vc, animated: true)
         //self.performSegueWithIdentifier("mySegue", sender:sender)
     }
-}
-
-func startWebApp(currentViewController:UIViewController) {
-    let webAppViewController = currentViewController.storyboard!.instantiateViewController(withIdentifier:
-        "MenuViewController") as? MenuViewController
-    webAppViewController?.modalPresentationStyle = .custom
-    webAppViewController?.modalTransitionStyle = .crossDissolve
-    currentViewController.present(webAppViewController!, animated: true, completion: nil)
+    
+    func startMenu() {
+        
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
+        let navigationController = UINavigationController(rootViewController: vc)
+        //self.window!.rootViewController = navigationController
+        originalViewController.present(navigationController, animated: true, completion: nil)
+        
+//        let menuViewController = originalViewController.storyboard!.instantiateViewController(withIdentifier:
+//            "MenuViewController") as? MenuViewController
+//        menuViewController?.modalPresentationStyle = .custom
+//        menuViewController?.modalTransitionStyle = .crossDissolve
+//        let navigationController = UINavigationController(rootViewController: menuViewController!)
+//        navigationController.pushViewController(menuViewController!, animated: true)
+        //originalViewController.present(menuViewController!, animated: true, completion: nil)
+    }
 }
 
 func startSignIn(currentViewController:UIViewController, modalTransitionStyle:UIModalTransitionStyle) {

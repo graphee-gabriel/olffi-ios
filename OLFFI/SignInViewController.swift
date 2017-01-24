@@ -64,7 +64,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     if error {
                         self.showError(error: "Could not connect to the server")
                     } else {
-                        startWebApp(currentViewController: self)
+                        AppNavigator(from: self).startMenu()
                     }
                 })
             } else {

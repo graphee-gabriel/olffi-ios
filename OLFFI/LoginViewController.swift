@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         if auth.isLoggedIn() {
-            startWebApp(currentViewController: self)
+            AppNavigator(from: self).startMenu()
         }
     }
     
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 if (error) {
                                     
                                 } else {
-                                    startWebApp(currentViewController: self)
+                                    AppNavigator(from: self).startMenu()
                                 }
                             })
                         }   
@@ -112,6 +112,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         } else {
             print("success logging")
             auth.logIn(type: .FACEBOOK, token: result.token.tokenString)
+            AppNavigator(from: self).startMenu()
         }
     }
     
