@@ -28,14 +28,24 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onPressedButtonSettings(_ sender: UIBarButtonItem) {
+    }
     func setupNavigationBarLogo() {
-//        let logo = UIImage(named: "logo.png")
-//        let imageView = UIImageView(image:logo)
-//        self.navigationItem.titleView = imageView
-        let imageView  = UIImageView.init(image: UIImage(named:"logo"))
+        
+        let titleView = UIView(frame: CGRect(x:0, y:0, width:90, height:30))
+        let imageView = UIImageView(image: UIImage(named: "logo"))
+        imageView.frame = CGRect(x:0, y:0, width:titleView.frame.width, height:titleView.frame.height)
         imageView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         imageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imageView
+        titleView.addSubview(imageView)
+        self.navigationItem.titleView = titleView
+        
+        if let nav = self.navigationController {
+            nav.navigationBar.barTintColor = UIColor(red: 251.0/255.0, green: 238.0/255.0, blue: 35.0/255.0, alpha: 1.0)
+            nav.navigationBar.tintColor = UIColor.black
+        }
+        
+        
         print("logo image loaded")
     }
     
@@ -52,6 +62,8 @@ class MenuViewController: UIViewController {
                 relativeUrl = "/publication.html"
             case "goto_compare":
                 relativeUrl = "/program/compare.html"
+            case "goto_settings":
+                relativeUrl = "/account.html"
             default:
                 break
             }
