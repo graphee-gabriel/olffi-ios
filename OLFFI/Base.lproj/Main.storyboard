@@ -377,7 +377,7 @@
                                         <constraint firstItem="PEj-ae-QeJ" firstAttribute="leading" secondItem="nXZ-pb-Ycy" secondAttribute="leadingMargin" id="yij-uw-Rkq"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.8857183908045978" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.85003591954022983" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="activityRightLabel" destination="FWo-T5-lAL" id="kKw-RZ-Yk3"/>
                                     <outlet property="levelLeftLabel" destination="UJ6-CV-9Nv" id="ze5-U3-WZf"/>
@@ -408,7 +408,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oh9-AC-nDz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="j1o-MD-Ocr">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -416,7 +416,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j1o-MD-Ocr" id="kJK-8s-nWB">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.85115840517241381" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -552,7 +554,7 @@
                                         <constraint firstItem="SQr-2i-40x" firstAttribute="trailing" secondItem="hF6-zd-bQN" secondAttribute="trailingMargin" id="zqN-Zk-6LI"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.89190463362068961" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="inForceLabel" destination="y1q-tu-cTO" id="URL-ye-Kio"/>
                                     <outlet property="projectTypeLabel" destination="r9r-13-JJe" id="kQq-lO-X7X"/>
