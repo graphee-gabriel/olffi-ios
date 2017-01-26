@@ -16,6 +16,7 @@ class CoproductionTreatyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "background")!)
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -54,14 +55,10 @@ class CoproductionTreatyTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let treaty = getTreaty(from: indexPath)
-        if let countriesList = treaty.countries_list, let signDate = treaty.sign_date {
-            cell.textLabel?.text = "\(countriesList) (\(signDate))"
-        }
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CoproductionTreatyTableViewCell
+        cell.treaty = getTreaty(from: indexPath)
         return cell
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

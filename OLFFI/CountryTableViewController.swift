@@ -17,6 +17,7 @@ class CountryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "background")!)
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self

@@ -17,20 +17,22 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+         self.tableView.backgroundView = UIImageView(image: UIImage(named: "background")!)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
+            let searchBar = controller.searchBar
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
+            searchBar.sizeToFit()
+            let searchTextField: UITextField? = searchBar.value(forKey: "searchField") as? UITextField
+            searchTextField?.placeholder = "Search for a program..."
             
-            self.tableView.tableHeaderView = controller.searchBar
+            self.tableView.tableHeaderView = searchBar
             
             return controller
         })()
@@ -56,27 +58,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! //as UITableViewCell
-        
-        let hit = items[indexPath.row];
-        cell.textLabel?.text = hit.program_name + " (\(hit.country_name!))"
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchTableViewCell
+        cell.hit = items[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let hit = self.items[indexPath.row]
-        print("You clicked on \(hit.program_name!)")
-        //let nav = AppNavigator(from: self)
-        //nav.startWebApp(at: UrlBuilder.buildUrl(from: hit.program_url))
-        print("segueee")
         performSegue(withIdentifier: "goto_web", sender: self)
     }
-    
+
     func updateSearchResults(for searchController: UISearchController) {
         let query:String = searchController.searchBar.text!
         if query.characters.count > 1 {
@@ -94,51 +86,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             controller.url = UrlBuilder.buildUrl(from: hit.program_url)
         }
     }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func search(for query:String) {
         self.query = query

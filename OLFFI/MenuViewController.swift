@@ -32,7 +32,10 @@ class MenuViewController: UIViewController {
 //        let logo = UIImage(named: "logo.png")
 //        let imageView = UIImageView(image:logo)
 //        self.navigationItem.titleView = imageView
-        self.navigationItem.titleView = UIImageView.init(image: UIImage(named:"logo"))
+        let imageView  = UIImageView.init(image: UIImage(named:"logo"))
+        imageView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
         print("logo image loaded")
     }
     
