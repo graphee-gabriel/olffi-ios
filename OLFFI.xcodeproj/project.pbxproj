@@ -37,6 +37,7 @@
 		2AA405461E3B95CD004FA619 /* Arvo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AA405441E3B95CD004FA619 /* Arvo-Bold.ttf */; };
 		2AA405471E3B95CD004FA619 /* Arvo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2AA405451E3B95CD004FA619 /* Arvo-Regular.ttf */; };
 		2AA405491E3B993F004FA619 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA405481E3B993F004FA619 /* Constants.swift */; };
+		2AA4054B1E3B9E59004FA619 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4054A1E3B9E59004FA619 /* TableViewHelper.swift */; };
 		2AAD8DB21D1021D6000B5C7E /* linkedin-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */; };
 		2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB31D102956000B5C7E /* SignInViewController.swift */; };
 		2AAD8DB61D114080000B5C7E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD8DB51D114080000B5C7E /* Auth.swift */; };
@@ -103,6 +104,7 @@
 		2AA405441E3B95CD004FA619 /* Arvo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Bold.ttf"; sourceTree = "<group>"; };
 		2AA405451E3B95CD004FA619 /* Arvo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Regular.ttf"; sourceTree = "<group>"; };
 		2AA405481E3B993F004FA619 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2AA4054A1E3B9E59004FA619 /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		2AAD8DA91D0F4898000B5C7E /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		2AAD8DB11D1021D6000B5C7E /* linkedin-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "linkedin-sdk.framework"; sourceTree = "<group>"; };
 		2AAD8DB31D102956000B5C7E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				2A64D4061E38C7980035C58F /* Extensions.swift */,
 				2A64D4091E39EAEB0035C58F /* ViewHelper.swift */,
 				2AA405411E3B6A26004FA619 /* UICenteredButton.swift */,
+				2AA4054A1E3B9E59004FA619 /* TableViewHelper.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				2A64D3EE1E35F1A30035C58F /* SearchTableViewController.swift in Sources */,
 				2ADFF0701D0ECE8400D1224F /* SignUpViewController.swift in Sources */,
 				2AFFE9F91E3004810082E01D /* SearchResultResponse.swift in Sources */,
+				2AA4054B1E3B9E59004FA619 /* TableViewHelper.swift in Sources */,
 				2A64D3FC1E3783BB0035C58F /* CountryTableViewController.swift in Sources */,
 				2AF8783A1E2FF2E6009B6BE0 /* AlgoliaSearchManager.swift in Sources */,
 				2AAD8DB41D102956000B5C7E /* SignInViewController.swift in Sources */,
