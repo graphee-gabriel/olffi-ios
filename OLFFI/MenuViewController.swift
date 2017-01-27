@@ -9,6 +9,12 @@
 import UIKit
 
 class MenuViewController: UIViewController {
+    @IBOutlet weak var buttonSearch: UIButton!
+    @IBOutlet weak var buttonCountry: UIButton!
+    @IBOutlet weak var buttonCoproduction: UIButton!
+    @IBOutlet weak var buttonCalendar: UIButton!
+    @IBOutlet weak var buttonPublication: UIButton!
+    @IBOutlet weak var buttonCompare: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +26,15 @@ class MenuViewController: UIViewController {
                 print("sucessfully sent notification token to server")
             }
         }
+        
+        ViewHelper.setupCornerRadius(for: [
+            buttonSearch,
+            buttonCountry,
+            buttonCoproduction,
+            buttonCalendar,
+            buttonPublication,
+            buttonCompare
+            ])
         // Do any additional setup after loading the view.
     }
 

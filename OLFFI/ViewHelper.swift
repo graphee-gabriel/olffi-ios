@@ -15,4 +15,15 @@ class ViewHelper {
             .bold("\(title): \n")
             .normal(text)
     }
+    
+    static func setupCornerRadius(for button:UIButton, to cornerRadius:CGFloat = CGFloat(3)) {
+        button.layer.cornerRadius = cornerRadius
+        button.clipsToBounds = true
+    }
+    
+    static func setupCornerRadius(for buttons:[UIButton], to cornerRadius:CGFloat = CGFloat(3)) {
+        for button in buttons {
+            setupCornerRadius(for: button)
+        }
+    }
 }

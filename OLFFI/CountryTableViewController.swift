@@ -61,6 +61,7 @@ class CountryTableViewController: UITableViewController {
         if let label = cell.textLabel {
             label.text = country.name
             label.backgroundColor = UIColor.clear
+            label.font = Fonts.NORMAL
         }
         
         

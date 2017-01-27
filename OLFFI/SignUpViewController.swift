@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var viewLoading: UIActivityIndicatorView!
     var textFields:[UITextField] = []
     
+    @IBOutlet weak var buttonCancel: UIButton!
+    @IBOutlet weak var buttonSignUp: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             textField.delegate = self
             textField.tintColor = UIColor.gray
         }
-        
+        ViewHelper.setupCornerRadius(for: [buttonCancel, buttonSignUp])
         showLoading(show: false)
         textFieldFirstName.becomeFirstResponder()
         // Do any additional setup after loading the view.

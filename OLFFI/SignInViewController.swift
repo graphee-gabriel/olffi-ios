@@ -16,6 +16,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var viewFields: UIView!
     @IBOutlet weak var viewLoading: UIActivityIndicatorView!
 
+    @IBOutlet weak var buttonCancel: UIButton!
+    @IBOutlet weak var buttonLogIn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldEmail.delegate = self
@@ -24,7 +28,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         textFieldEmail.tintColor = UIColor.gray
         textFieldPassword.tintColor = UIColor.gray
         
-        
+        ViewHelper.setupCornerRadius(for: [buttonCancel, buttonLogIn])
         showLoading(show: false)
         textFieldEmail.becomeFirstResponder()
     }

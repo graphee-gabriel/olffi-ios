@@ -10,14 +10,15 @@ import Foundation
 
 extension NSMutableAttributedString {
     func bold(_ text:String) -> NSMutableAttributedString {
-        let attrs:[String:AnyObject] = [NSFontAttributeName : UIFont.boldSystemFont(ofSize: 17.0)]
+        let attrs:[String:AnyObject] = [NSFontAttributeName : Fonts.NORMAL_BOLD]
         let boldString = NSMutableAttributedString(string:"\(text)", attributes:attrs)
         self.append(boldString)
         return self
     }
     
     func normal(_ text:String)->NSMutableAttributedString {
-        let normal =  NSAttributedString(string: text)
+        let attrs:[String:AnyObject] = [NSFontAttributeName : Fonts.NORMAL]
+        let normal =  NSAttributedString(string: text, attributes:attrs)
         self.append(normal)
         return self
     }
