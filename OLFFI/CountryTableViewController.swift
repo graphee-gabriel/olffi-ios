@@ -89,16 +89,13 @@ class CountryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let controller = segue.destination as! WebViewController
-            let relativeUrl = getRelativeUrl(from: indexPath)
+            let country = getCountry(from: indexPath)
+            let relativeUrl = "/c/" + country.code_iso
             controller.url = UrlBuilder.buildUrl(from: relativeUrl)
+            controller.titleCustom = country.name
         }
     }
-    
-    func getRelativeUrl(from indexPath:IndexPath) -> String {
-        let country = getCountry(from: indexPath)
-        return "/c/" + country.code_iso
-    }
-    
+
     func getCountry(from indexPath:IndexPath) -> CountryResponse {
         return resultSearchController.isActive && resultSearchController.searchBar.text != "" ? itemsFiltered[indexPath.row] : items[indexPath.row]
     }

@@ -18,6 +18,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView?
     var webAppIsReady = false
     var url = ""
+    var titleCustom:String?
     
     override func loadView() {
         super.loadView()
@@ -27,6 +28,10 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if titleCustom != nil {
+            self.navigationItem.title = titleCustom!
+        }
         
         if webView != nil {
             self.webViewContainer.addSubview(webView!)

@@ -81,14 +81,11 @@ class CoproductionTreatyTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let controller = segue.destination as! WebViewController
-            let relativeUrl = getRelativeUrl(from: indexPath)
+            let treaty = getTreaty(from: indexPath)
+            let relativeUrl = treaty.url!
             controller.url = UrlBuilder.buildUrl(from: relativeUrl)
+            controller.titleCustom = "\(treaty.countries_list!) (\(treaty.sign_date!))"
         }
-    }
-    
-    func getRelativeUrl(from indexPath:IndexPath) -> String {
-        let treaty = getTreaty(from: indexPath)
-        return treaty.url
     }
     
     func getTreaty(from indexPath:IndexPath) -> CoproductionTreatyResponse {

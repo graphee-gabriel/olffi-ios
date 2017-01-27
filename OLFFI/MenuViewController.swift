@@ -66,6 +66,7 @@ class MenuViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var relativeUrl:String?
+        var titleCustom:String?
         print("prepare for segue")
         if let identifier = segue.identifier {
             print("identifier: \(identifier)")
@@ -73,12 +74,16 @@ class MenuViewController: UIViewController {
             switch identifier {
             case "goto_calendar":
                 relativeUrl = "/program/calendar.html"
+                titleCustom = "Calendar"
             case "goto_publication":
                 relativeUrl = "/publication.html"
+                titleCustom = "Publication"
             case "goto_compare":
                 relativeUrl = "/program/compare.html"
+                titleCustom = "Compare"
             case "goto_settings":
                 relativeUrl = "/account.html"
+                titleCustom = "Settings"
             default:
                 break
             }
@@ -86,6 +91,7 @@ class MenuViewController: UIViewController {
             if relativeUrl != nil {
                 let controller = segue.destination as! WebViewController
                 controller.url = UrlBuilder.buildUrl(from: relativeUrl!)
+                controller.titleCustom = titleCustom
             }
             
         }

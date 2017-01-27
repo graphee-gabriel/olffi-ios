@@ -91,6 +91,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             let hit = self.items[indexPath.row]
             let controller = segue.destination as! WebViewController
             controller.url = UrlBuilder.buildUrl(from: hit.program_url)
+            controller.titleCustom = hit.program_name
         }
     }
     
