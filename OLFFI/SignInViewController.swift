@@ -18,8 +18,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var buttonCancel: UIButton!
     @IBOutlet weak var buttonLogIn: UIButton!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldEmail.delegate = self

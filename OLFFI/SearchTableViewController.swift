@@ -14,7 +14,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     var items: [SearchResultHit] = []
     var resultSearchController = UISearchController()
     var query = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Search"
@@ -26,12 +26,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             let searchBar = controller.searchBar
+
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             searchBar.sizeToFit()
+ 
             let searchTextField: UITextField? = searchBar.value(forKey: "searchField") as? UITextField
-            searchTextField?.placeholder = "Search for a program..."
-            
+            searchTextField?.placeholder = "Search for funding..."
+
             self.tableView.tableHeaderView = searchBar
             
             return controller
@@ -56,7 +58,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             TableViewHelper.showBackground(viewController: self)
             return 1
         } else {
-            TableViewHelper.showEmptyMessage(saying: "Search for a program, fund or country...", viewController: self)
+            TableViewHelper.showEmptyMessage(saying: "Search for a programme, \nfund or country...", viewController: self)
             return 0
         }
         

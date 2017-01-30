@@ -2,7 +2,6 @@ import UIKit
 
 class UICenteredButton: UIButton
 {
-    
     let imageRatio = CGFloat(0.5)
     let titleMargin = CGFloat(8)
     

@@ -13,12 +13,10 @@ import Firebase
 var auth = Auth.init()
 
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
@@ -38,13 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             self.window!.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
         }
-        
-        
 
-        
-        
-        
-        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
@@ -52,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if LISDKCallbackHandler.shouldHandle(url) {
             return LISDKCallbackHandler.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
         }
+
         return FBSDKApplicationDelegate.sharedInstance().application(
             application,
             open: url,
@@ -122,9 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRMessaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }
-    
-    
-    
+
     func tokenRefreshNotificaiton(notification: NSNotification) {
         //let refreshedToken = FIRInstanceID.instanceID().token()!
         //print("InstanceID token: \(refreshedToken)")
@@ -138,7 +129,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Connect to FCM since connection may have failed when attempted before having a token.
         connectToFcm()
     }
-    
 
     
     //////////////////////////////////

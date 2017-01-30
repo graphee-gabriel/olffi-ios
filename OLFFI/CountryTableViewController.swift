@@ -14,7 +14,8 @@ class CountryTableViewController: UITableViewController {
     var items: [CountryResponse] = []
     var itemsFiltered: [CountryResponse] = []
     var resultSearchController = UISearchController()
-    
+    var query:String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Country"
@@ -47,21 +48,21 @@ class CountryTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if items.count > 0 {
+        if itemsFiltered.count > 0 {
             TableViewHelper.showBackground(viewController: self)
             return 1
         } else {
-            TableViewHelper.showEmptyMessage(saying: "Loading countries...", viewController: self)
+            TableViewHelper.showEmptyMessage(saying: items.count > 0 ?
+                "Can't find anything for '\(query)'" :
+                "Loading countries...", viewController: self)
             return 0
         }
     }
-
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultSearchController.isActive ? itemsFiltered.count : items.count
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let country = getCountry(from: indexPath)
@@ -78,15 +79,21 @@ class CountryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goto_web", sender: self)
     }
-    
+
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        itemsFiltered = items.filter { item in
-            return item.name.lowercased().contains(searchText.lowercased())
+        query = searchText
+
+        if searchText.characters.count > 0 {
+            itemsFiltered = items.filter { item in
+                return item.name.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            itemsFiltered = items
         }
-        
+
         tableView.reloadData()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let controller = segue.destination as! WebViewController

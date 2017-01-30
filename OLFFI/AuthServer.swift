@@ -31,7 +31,6 @@ class AuthServer {
                     print(error)
                 }
         }
-        
     }
     
     static func signUp(firstName:String, lastName:String, email:String, password:String,  completion: @escaping (_ error:Bool) -> Void) {

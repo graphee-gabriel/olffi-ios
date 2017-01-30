@@ -28,7 +28,6 @@ class AppNavigator {
     
     func startMenu() {
         
-        
         let vc = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
         let navigationController = UINavigationController(rootViewController: vc)
         //self.window!.rootViewController = navigationController

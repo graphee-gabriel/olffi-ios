@@ -20,7 +20,7 @@ class Auth {
         LINKEDIN = "linkedin",
         BASIC = "basic"
     }
-    
+
     func isLoggedIn() -> Bool {
         return !tokenValue.isEmpty
     }
@@ -37,13 +37,13 @@ class Auth {
         self.tokenValue = token
         save()
     }
-    
+
     func save() {
         UserDefaults.standard.setValue(tokenType.rawValue, forKey: "tokenType")
         UserDefaults.standard.setValue(tokenValue, forKey: "tokenValue")
         UserDefaults.standard.synchronize()
     }
-    
+
     func load() {
         if
             let tokenTypeRawValue = UserDefaults.standard.value(forKey: "tokenType") as! String?,
