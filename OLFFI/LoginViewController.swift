@@ -40,10 +40,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func onLinkedInLogin(sender: UIButton) {
-        onLinkedInLogin()
-    }
-    
-    func onLinkedInLogin() {
         LISDKSessionManager.createSession(withAuth: [LISDK_BASIC_PROFILE_PERMISSION, LISDK_EMAILADDRESS_PERMISSION], state: nil, showGoToAppStoreDialog: true, successBlock: { (returnState) -> Void in
             print("success called!")
             if LISDKSessionManager.hasValidSession() && LISDKSessionManager.sharedInstance().session.accessToken != nil {
@@ -59,14 +55,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: AnyObject]
                         
-//                        let parsed = json as NSDictionary
-//                        let id = parsed.objectForKey("id") as! String
-//                        let firstName = parsed.objectForKey("firstName") as! String
-//                        let lastName = parsed.objectForKey("lastName") as! String
-//
-//                        let emailAddress = parsed.objectForKey("emailAddress") as! String
-//                        
-//                        let hash = (firstName+lastName+emailAddress+id+"FuckL1nk3dIN.com").md5
+                        //                        let parsed = json as NSDictionary
+                        //                        let id = parsed.objectForKey("id") as! String
+                        //                        let firstName = parsed.objectForKey("firstName") as! String
+                        //                        let lastName = parsed.objectForKey("lastName") as! String
+                        //
+                        //                        let emailAddress = parsed.objectForKey("emailAddress") as! String
+                        //
+                        //                        let hash = (firstName+lastName+emailAddress+id+"FuckL1nk3dIN.com").md5
                         
                         
                         if (json["id"] as? String) != nil
@@ -86,18 +82,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     AppNavigator(from: self).startMenu()
                                 }
                             })
-                        }   
+                        }
                     } catch let error as NSError {
                         print("Failed to load: \(error.localizedDescription)")
                     }
-                    }, error: {
-                        error in
-                        //Do something with the error
+                }, error: {
+                    error in
+                    //Do something with the error
                 })
             }
         }) { (error) -> Void in
             print("Error: \(error)")
         }
+
     }
     
     func configureFacebook() {

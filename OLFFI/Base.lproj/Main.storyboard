@@ -117,7 +117,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Log in with LinkedIn"/>
                                 <connections>
-                                    <action selector="onLinkedInLogin:" destination="FYd-47-OFs" eventType="touchUpInside" id="DIB-7h-nUu"/>
+                                    <action selector="onLinkedInLoginWithSender:" destination="FYd-47-OFs" eventType="touchUpInside" id="Qky-gJ-lcB"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="E3y-lf-1b8" userLabel="Icon LinkedIn Login">
