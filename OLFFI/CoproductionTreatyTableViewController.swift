@@ -95,7 +95,7 @@ class CoproductionTreatyTableViewController: UITableViewController {
         } else {
             itemsFiltered = items
         }
-        
+
         tableView.reloadData()
     }
     
