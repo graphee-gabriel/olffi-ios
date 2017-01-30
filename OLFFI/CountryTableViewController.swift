@@ -14,6 +14,7 @@ class CountryTableViewController: UITableViewController {
     var items: [CountryResponse] = []
     var itemsFiltered: [CountryResponse] = []
     var resultSearchController = UISearchController()
+    var query:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +48,13 @@ class CountryTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if items.count > 0 {
+        if itemsFiltered.count > 0 {
             TableViewHelper.showBackground(viewController: self)
             return 1
         } else {
-            TableViewHelper.showEmptyMessage(saying: "Loading countries...", viewController: self)
+            TableViewHelper.showEmptyMessage(saying: items.count > 0 ?
+                "Can't find anything for '\(query)'" :
+                "Loading countries...", viewController: self)
             return 0
         }
     }
@@ -80,8 +83,14 @@ class CountryTableViewController: UITableViewController {
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        itemsFiltered = items.filter { item in
-            return item.name.lowercased().contains(searchText.lowercased())
+        query = searchText
+        
+        if searchText.characters.count > 0 {
+            itemsFiltered = items.filter { item in
+                return item.name.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            itemsFiltered = items
         }
         
         tableView.reloadData()
