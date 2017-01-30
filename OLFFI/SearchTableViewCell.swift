@@ -30,13 +30,25 @@ class SearchTableViewCell: UITableViewCell {
                     ViewHelper.buildLabelWith(title:"Activity",
                                    text:h.activity!)
                 
+                var projectType = ""
+                if let type = h.project_type {
+                    projectType = type.joined(separator: ", ")
+                }
+                
+                var natureOfProject = ""
+                if let nature = h.nature_of_project {
+                    natureOfProject = nature.joined(separator: ", ")
+                }
+                
                 projectTypeLabel.attributedText =
                     ViewHelper.buildLabelWith(title:"Project type",
-                                   text:h.project_type!.joined(separator: ", "))
+                                              text:projectType)
                 
                 natureOfProjectLabel.attributedText =
                     ViewHelper.buildLabelWith(title:"Nature of project",
-                                   text:h.nature_of_project!.joined(separator: ", "))
+                                              text:natureOfProject)
+                
+                
             }
         }
     }
