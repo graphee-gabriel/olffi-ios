@@ -18,7 +18,7 @@ class UrlBuilder {
         if auth.tokenType == .NULL || auth.tokenValue.isEmpty {
             return ""
         }
-        return "token=" + auth.tokenValue + "&type=" + auth.tokenType.rawValue;
+        return "token=\(auth.tokenValue)&type=\(auth.tokenType.rawValue)&app=ios";
     }
     
     static func appendBaseUrl(to relativeUrl:String) -> String {
