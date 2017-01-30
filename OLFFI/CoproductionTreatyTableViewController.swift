@@ -73,7 +73,12 @@ class CoproductionTreatyTableViewController: UITableViewController {
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         itemsFiltered = items.filter { item in
-            return item.countries_list.lowercased().contains(searchText.lowercased())
+            for component in searchText.lowercased().components(separatedBy: " ") {
+                if !item.countries_list.lowercased().contains(component) {
+                    return false
+                }
+            }
+            return true
         }
         
         tableView.reloadData()
