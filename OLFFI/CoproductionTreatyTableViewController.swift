@@ -73,8 +73,9 @@ class CoproductionTreatyTableViewController: UITableViewController {
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         itemsFiltered = items.filter { item in
-            let countriesList = item.countries_list.lowercased();
-            for component in searchText.lowercased().components(separatedBy: " ") {
+            let countriesList = item.countries_list.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            let searchTextCleaned = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            for component in searchTextCleaned.components(separatedBy: " ") {
                 if !countriesList.contains(component) {
                     return false
                 }
